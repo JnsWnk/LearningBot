@@ -1,10 +1,8 @@
-# -*- coding: utf-8 -*-
-
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel
 import time 
-import config
+import backend.config as config
 
 print("Starting model loading...")
 start_load_time = time.time()

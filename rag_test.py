@@ -6,7 +6,7 @@ from pymongo import MongoClient
 from sentence_transformers import SentenceTransformer
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel
-import config
+import backend.config as config
 
 
 VECTOR_INDEX_NAME = config.VECTOR_INDEX_NAME
@@ -20,7 +20,7 @@ def connect_mongo():
     try:
         client = MongoClient(config.MONGO_CONNECTION_STRING)
         db = client[config.DB_NAME]
-        collection = db[config.COLLECTION_NAME]
+        collection = db[config.DOCS_COLLECTION]
         # Test connection
         client.admin.command('ping')
         print("MongoDB connection successful.")
