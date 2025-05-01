@@ -15,7 +15,7 @@ import config
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     print("Application startup: Loading models...")
-    loaded_models = models.load_models()
+    loaded_models = models.load_all_models()
     app.state.ml_models = loaded_models # Store in app state
     app.state.user_collection = db.users_collection 
     if not hasattr(db, 'client') or db.client is None:
@@ -61,7 +61,6 @@ async def chat_endpoint(
     message: schemas.ChatMessage,
     current_user: schemas.UserPublic = Depends(security.get_current_user)
 ):
-    print(current_user)
     user_id = current_user.user_id
     user_input = message.user_input
 
@@ -70,17 +69,16 @@ async def chat_endpoint(
     # Check if models are ready
     if "load_error" in ml_models:
          raise HTTPException(status_code=503, detail=f"ML Models failed to load: {ml_models['load_error']}")
-    if "llm" not in ml_models or "tokenizer" not in ml_models or "embedding_model" not in ml_models:
+    if len(ml_models) == 0:
          raise HTTPException(status_code=503, detail="ML Models not available.")
 
     # Delegate processing to the chatbot module function
     bot_answer = chatbot.process_chat_message(
         user_input=user_input,
         user_id=user_id,
-        llm=ml_models["llm"],
-        tokenizer=ml_models["tokenizer"],
-        embedding_model=ml_models["embedding_model"],
-        vector_index_name=config.VECTOR_INDEX_NAME 
+        models=ml_models,
+        vector_index_name=config.VECTOR_INDEX_NAME,
+        use_gpt4=True
     )
 
     return schemas.ChatResponse(bot_response=bot_answer)

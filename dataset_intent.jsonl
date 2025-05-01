@@ -1,0 +1,1144 @@
+{"input_text": "what is python?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"python\"}"}
+{"input_text": "Explain recursion", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"recursion\"}"}
+{"input_text": "Tell me about supervised learning", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"supervised learning\"}"}
+{"input_text": "summarize the concept of Big O notation", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Big O notation\"}"}
+{"input_text": "give me the key points about linked lists", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"linked lists\"}"}
+{"input_text": "Can you show an example of a Python class?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python class example\"}"}
+{"input_text": "what's the difference between a list and a tuple in python", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"python list vs tuple\"}"}
+{"input_text": "how do sql joins work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"sql joins\"}"}
+{"input_text": "elaborate on neural networks", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"neural networks\"}"}
+{"input_text": "describe data normalization", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"data normalization\"}"}
+{"input_text": "info on gradient descent please", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"gradient descent\"}"}
+{"input_text": "how is machine learning used?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"machine learning applications\"}"}
+{"input_text": "what are data structures?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"data structures\"}"}
+{"input_text": "explain object oriented programming", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"object oriented programming\"}"}
+{"input_text": "summarize inheritance", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"inheritance\"}"}
+{"input_text": "quick overview of APIs", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"APIs\"}"}
+{"input_text": "tell me more", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "explain that further", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "why?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "what about unsupervised learning?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"unsupervised learning\"}"}
+{"input_text": "Talk about Flask.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Flask\"}"}
+{"input_text": "What is REST?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"REST\"}"}
+{"input_text": "Definition of polymorphism", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"polymorphism\"}"}
+{"input_text": "How are stacks used?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"stacks usage\"}"}
+{"input_text": "Compare BFS and DFS", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"BFS vs DFS\"}"}
+{"input_text": "Summarise the main sorting algorithms", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"sorting algorithms\"}"}
+{"input_text": "Example of NoSQL database?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"NoSQL database example\"}"}
+{"input_text": "What is NLP?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"NLP\"}"}
+{"input_text": "Tell me about computer vision.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"computer vision\"}"}
+{"input_text": "Details on scikit-learn please", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"scikit-learn\"}"}
+{"input_text": "quiz me on python lists", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"python lists\"}"}
+{"input_text": "Test my knowledge about recursion", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"recursion\"}"}
+{"input_text": "Ask me some questions about data structures", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"data structures\"}"}
+{"input_text": "I want to practice OOP concepts", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"OOP concepts\"}"}
+{"input_text": "What's my level for sorting algorithms?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"sorting algorithms\"}"}
+{"input_text": "How well do I know Big O notation?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Big O notation\"}"}
+{"input_text": "Check my status on SQL basics", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"SQL basics\"}"}
+{"input_text": "Do I understand linked lists?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"linked lists\"}"}
+{"input_text": "Let's see how I do on neural networks", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"neural networks\"}"}
+{"input_text": "Test me on classification vs regression", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"classification vs regression\"}"}
+{"input_text": "Am I ready for advanced algorithms?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"advanced algorithms\"}"}
+{"input_text": "Check my python functions knowledge", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"python functions\"}"}
+{"input_text": "how am I doing with java basics?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"java basics\"}"}
+{"input_text": "practice arrays", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"arrays\"}"}
+{"input_text": "quiz time for databases", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"databases\"}"}
+{"input_text": "ask me about REST APIs", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"REST APIs\"}"}
+{"input_text": "status check on supervised learning", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"supervised learning\"}"}
+{"input_text": "what is my progress on NLP?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"NLP\"}"}
+{"input_text": "challenge me on pandas", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"pandas\"}"}
+{"input_text": "let's practice javascript variables", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"javascript variables\"}"}
+{"input_text": "how's my understanding of memory management?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"memory management\"}"}
+{"input_text": "ask another question", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "next one", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Review python data types for me", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"python data types\"}"}
+{"input_text": "Let's go over loops again", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"loops\"}"}
+{"input_text": "I need to review my weakest subject", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Review something I learned a while ago", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Help me revise binary search", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"binary search\"}"}
+{"input_text": "Go over the oldest thing I learned about AI", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Refresh my memory on hash maps", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"hash maps\"}"}
+{"input_text": "let's review what we covered yesterday about databases", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"databases\"}"}
+{"input_text": "review the basics", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "review unsupervised learning", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"unsupervised learning\"}"}
+{"input_text": "need a refresher on SQL", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"SQL\"}"}
+{"input_text": "review the important stuff", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "go over that topic from last week", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Hi", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Hello there", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Hey bot", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Thanks", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Thank you very much", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "OK", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Got it", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Sounds good", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Bye", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Goodbye", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "See you later", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "That was helpful", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Interesting point", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What can you do?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Can you help me?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "asdfg hjkl", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Tell me a joke", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "python dictionary methods", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"python dictionary methods\"}"}
+{"input_text": "how to implement a stack in java", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"java stack implementation\"}"}
+{"input_text": "summary of overfitting", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"overfitting\"}"}
+{"input_text": "Could you define 'process' in operating systems?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"operating systems process definition\"}"}
+{"input_text": "Use cases for MongoDB", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"MongoDB use cases\"}"}
+{"input_text": "I'm ready for some questions on CSS selectors", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"CSS selectors\"}"}
+{"input_text": "evaluate my understanding of Flask routes", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Flask routes\"}"}
+{"input_text": "my status regarding numpy arrays", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"numpy arrays\"}"}
+{"input_text": "Am I good with javascript promises?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"javascript promises\"}"}
+{"input_text": "I'd like to practice C++ pointers", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"C++ pointers\"}"}
+{"input_text": "revisit HTML forms", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"HTML forms\"}"}
+{"input_text": "let's review the stuff i found difficult", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "need to brush up on deep learning basics", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"deep learning basics\"}"}
+{"input_text": "review the oldest cs concept i learned", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "go over file systems again", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"file systems\"}"}
+{"input_text": "Can you compare Python and Java?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python vs Java\"}"}
+{"input_text": "What are the main principles of functional programming?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"functional programming principles\"}"}
+{"input_text": "Summarize the ACID properties in databases.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"ACID properties databases\"}"}
+{"input_text": "Give me an example of polymorphism in C++.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"C++ polymorphism example\"}"}
+{"input_text": "Need help understanding pointers.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"pointers\"}"}
+{"input_text": "How is data visualized?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"data visualization\"}"}
+{"input_text": "Explain NLP tokenization.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"NLP tokenization\"}"}
+{"input_text": "What's a convolutional neural network?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"convolutional neural network\"}"}
+{"input_text": "Tell me about the significance of p-value.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"p-value significance\"}"}
+{"input_text": "Show me some pandas DataFrame operations.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"pandas DataFrame operations\"}"}
+{"input_text": "How does virtual memory work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"virtual memory\"}"}
+{"input_text": "Explain threads vs processes.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"threads vs processes\"}"}
+{"input_text": "What is HTTP?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"HTTP\"}"}
+{"input_text": "Summarize the basics of git.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"git basics\"}"}
+{"input_text": "I need to understand closures in JavaScript.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"JavaScript closures\"}"}
+{"input_text": "Provide an overview of cloud computing models.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"cloud computing models\"}"}
+{"input_text": "Describe the different types of machine learning.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"types of machine learning\"}"}
+{"input_text": "What are activation functions?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"activation functions\"}"}
+{"input_text": "Explain database indexing.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"database indexing\"}"}
+{"input_text": "What's the point of CSS?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CSS purpose\"}"}
+{"input_text": "Tell me more about arrays.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"arrays\"}"}
+{"input_text": "How do compilers work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"compilers\"}"}
+{"input_text": "What is supervised learning used for?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"supervised learning use cases\"}"}
+{"input_text": "Explain clustering algorithms.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"clustering algorithms\"}"}
+{"input_text": "Give me a summary of reinforcement learning.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"reinforcement learning\"}"}
+{"input_text": "Tell me the difference between classification and regression", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"classification vs regression\"}"}
+{"input_text": "What is overfitting?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"overfitting\"}"}
+{"input_text": "How is model performance evaluated in ML?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"ML model evaluation\"}"}
+{"input_text": "What are lambda functions in Python?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python lambda functions\"}"}
+{"input_text": "Describe network protocols.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"network protocols\"}"}
+{"input_text": "Can you elaborate?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "Explain more please", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "Go deeper into that", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "What else?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "Let's do a quick test on network protocols.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"network protocols\"}"}
+{"input_text": "Am I good with CSS fundamentals?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"CSS fundamentals\"}"}
+{"input_text": "I want to practice writing SQL queries.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"SQL queries\"}"}
+{"input_text": "What's my mastery of React components?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"React components\"}"}
+{"input_text": "Check my knowledge regarding data warehousing.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"data warehousing\"}"}
+{"input_text": "Ask me something about OS scheduling.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"OS scheduling\"}"}
+{"input_text": "How proficient am I with git branches?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"git branches\"}"}
+{"input_text": "Test me on ML evaluation metrics.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"ML evaluation metrics\"}"}
+{"input_text": "Status update on data cleaning techniques.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"data cleaning techniques\"}"}
+{"input_text": "How is my progress with TensorFlow?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"TensorFlow\"}"}
+{"input_text": "I need to test my Java exception handling.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Java exception handling\"}"}
+{"input_text": "Do I know enough about cybersecurity basics?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"cybersecurity basics\"}"}
+{"input_text": "Quiz me on algorithm complexity.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"algorithm complexity\"}"}
+{"input_text": "Check my level on dynamic programming.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"dynamic programming\"}"}
+{"input_text": "Let's practice graph traversal.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"graph traversal\"}"}
+{"input_text": "Test my web sockets knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"web sockets\"}"}
+{"input_text": "How much do I remember about heaps?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"heaps\"}"}
+{"input_text": "Quiz about C++ templates", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"C++ templates\"}"}
+{"input_text": "What's my proficiency in pandas?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"pandas\"}"}
+{"input_text": "Test me.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Ask me some stuff.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "What's my status?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Check my level", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Can you ask me something else?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Another question please", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Let's test that", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "How well do I grasp binary trees?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"binary trees\"}"}
+{"input_text": "Test me on JavaScript async await", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"JavaScript async await\"}"}
+{"input_text": "My level for computer networks?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"computer networks\"}"}
+{"input_text": "Quiz on Linux commands", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Linux commands\"}"}
+{"input_text": "Revisit virtual memory concepts.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"virtual memory concepts\"}"}
+{"input_text": "I forgot about binary trees, let's review.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"binary trees\"}"}
+{"input_text": "Go over the subjects I know least well.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Review the last topic we discussed.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Can we do a quick review of APIs?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"APIs\"}"}
+{"input_text": "Brush up on time complexity.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"time complexity\"}"}
+{"input_text": "Need to review database normalization.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"database normalization\"}"}
+{"input_text": "Let's review sorting.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"sorting\"}"}
+{"input_text": "Go over hash tables again.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"hash tables\"}"}
+{"input_text": "Review the weakest AI topic for me.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "I want to revise Python loops.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Python loops\"}"}
+{"input_text": "Quick review on functions.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"functions\"}"}
+{"input_text": "Review oldest data structure.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Need a refresher on classes.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"classes\"}"}
+{"input_text": "Review.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Let's revise", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Go over polymorphism.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"polymorphism\"}"}
+{"input_text": "Help me review web dev basics.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"web dev basics\"}"}
+{"input_text": "Revise OS concepts.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"OS concepts\"}"}
+{"input_text": "Review machine learning workflows.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"machine learning workflows\"}"}
+{"input_text": "Cool.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Alright then.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Not right now.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Maybe later.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Is this bot helpful?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Who made you?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What time is it?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Blah blah blah", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Stop.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Wait.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "That's wrong.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "I disagree.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Let's talk about something else.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Can you sing a song?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Good bot.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "This is fun.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What's the weather?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Can you order pizza?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What is your name?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Are you sentient?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Demonstrate bubble sort.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"bubble sort\"}"}
+{"input_text": "Could you illustrate how linked lists store data?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"linked lists data storage\"}"}
+{"input_text": "What are the practical uses of graph algorithms?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"graph algorithms use cases\"}"}
+{"input_text": "Summarize the difference between supervised and reinforcement learning.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"supervised vs reinforcement learning\"}"}
+{"input_text": "Key points about API rate limiting?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"API rate limiting\"}"}
+{"input_text": "Tell me about Python decorators.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python decorators\"}"}
+{"input_text": "Show me how to handle file I/O in Java.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Java file I/O\"}"}
+{"input_text": "Explain the concept of threads.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"threads\"}"}
+{"input_text": "Compare SQL and NoSQL databases again.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SQL vs NoSQL databases\"}"}
+{"input_text": "What is feature engineering in ML?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"ML feature engineering\"}"}
+{"input_text": "Need details on network layers.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"network layers\"}"}
+{"input_text": "How is memory allocated by the OS?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"OS memory allocation\"}"}
+{"input_text": "What's the purpose of an OS kernel?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"OS kernel purpose\"}"}
+{"input_text": "Give me a quick summary of blockchain.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"blockchain\"}"}
+{"input_text": "How are decision trees used?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"decision trees usage\"}"}
+{"input_text": "Explain hash collisions.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"hash collisions\"}"}
+{"input_text": "What are Python generators?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python generators\"}"}
+{"input_text": "Tell me about virtual environments in Python.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python virtual environments\"}"}
+{"input_text": "Summarize web accessibility principles.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"web accessibility principles\"}"}
+{"input_text": "Explain CSS specificity.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CSS specificity\"}"}
+{"input_text": "What is agile methodology?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"agile methodology\"}"}
+{"input_text": "Describe unit testing.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"unit testing\"}"}
+{"input_text": "How does TCP work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"TCP\"}"}
+{"input_text": "What is bandwidth?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"bandwidth\"}"}
+{"input_text": "Explain latency.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"latency\"}"}
+{"input_text": "Give me an example of unsupervised learning.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"unsupervised learning example\"}"}
+{"input_text": "What is deep learning?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"deep learning\"}"}
+{"input_text": "Tell me about natural language generation.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"natural language generation\"}"}
+{"input_text": "Summarize the concept of bias in AI.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"AI bias\"}"}
+{"input_text": "What are evaluation metrics for classification?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"classification evaluation metrics\"}"}
+{"input_text": "Like what?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "Can you give me specifics?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "How so?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "Explain that last concept.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "What does that mean?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "Summarize the key ideas.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "What are the advantages of using Java?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Java advantages\"}"}
+{"input_text": "Describe dependency injection.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"dependency injection\"}"}
+{"input_text": "What is cloud native?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"cloud native\"}"}
+{"input_text": "Tell me about microservices architecture.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"microservices architecture\"}"}
+{"input_text": "How does Kubernetes work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Kubernetes\"}"}
+{"input_text": "Explain Docker.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Docker\"}"}
+{"input_text": "What is Infrastructure as Code?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Infrastructure as Code\"}"}
+{"input_text": "Summarize CI/CD pipelines.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CI/CD pipelines\"}"}
+{"input_text": "What are the different types of software testing?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"software testing types\"}"}
+{"input_text": "How to prevent SQL injection?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SQL injection prevention\"}"}
+{"input_text": "Explain public key cryptography.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"public key cryptography\"}"}
+{"input_text": "What is hashing used for in security?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"hashing in security\"}"}
+{"input_text": "Tell me about different database paradigms.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"database paradigms\"}"}
+{"input_text": "Summarize MapReduce.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"MapReduce\"}"}
+{"input_text": "I want to check my grasp of asymptotic notation.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"asymptotic notation\"}"}
+{"input_text": "Let's have a pop quiz on recursion.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"recursion\"}"}
+{"input_text": "Assess my knowledge of CSS flexbox.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"CSS flexbox\"}"}
+{"input_text": "How am I doing with object-oriented principles?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"object-oriented principles\"}"}
+{"input_text": "Hit me with some questions about database normalization.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"database normalization\"}"}
+{"input_text": "Time for a test on Python generators.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Python generators\"}"}
+{"input_text": "Check my C++ memory management level.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"C++ memory management\"}"}
+{"input_text": "Can I answer questions about gradient descent?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"gradient descent\"}"}
+{"input_text": "Evaluate my skills with React hooks.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"React hooks\"}"}
+{"input_text": "Practice problems for dynamic programming.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"dynamic programming\"}"}
+{"input_text": "Test my understanding of data types.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"data types\"}"}
+{"input_text": "How well do I really know loops?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"loops\"}"}
+{"input_text": "Let's see my status on API design.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"API design\"}"}
+{"input_text": "Ask me about multithreading.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"multithreading\"}"}
+{"input_text": "Quiz on machine learning basics", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"machine learning basics\"}"}
+{"input_text": "How's my knowledge of SQL aggregate functions?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"SQL aggregate functions\"}"}
+{"input_text": "Check my understanding of polymorphism.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"polymorphism\"}"}
+{"input_text": "I want to try some questions on computer vision.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"computer vision\"}"}
+{"input_text": "What's my level on data analysis with pandas?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"data analysis pandas\"}"}
+{"input_text": "Test me on web security vulnerabilities.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"web security vulnerabilities\"}"}
+{"input_text": "Ask me about linked list operations.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"linked list operations\"}"}
+{"input_text": "Check my progress on AI ethics.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"AI ethics\"}"}
+{"input_text": "Quiz me about trees.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"trees\"}"}
+{"input_text": "How good am I at debugging?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"debugging\"}"}
+{"input_text": "Test my knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Check my status.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Let's do some questions.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Ask me one more.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Next question.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "I'm ready for another.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Revisit classes and objects.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"classes and objects\"}"}
+{"input_text": "Go over Big O complexity again.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Big O complexity\"}"}
+{"input_text": "I need to review the concepts I got wrong last time.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Can we review the oldest ML topic?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Let's do a quick refresher on network sockets.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"network sockets\"}"}
+{"input_text": "Go over stacks and queues.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"stacks and queues\"}"}
+{"input_text": "Brush up on Python exception handling.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Python exception handling\"}"}
+{"input_text": "Review my least understood topic.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Let's revise Java syntax.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Java syntax\"}"}
+{"input_text": "Review REST principles.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"REST principles\"}"}
+{"input_text": "Need to review database transactions.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"database transactions\"}"}
+{"input_text": "Go over graph algorithms.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"graph algorithms\"}"}
+{"input_text": "Revisit neural network layers.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"neural network layers\"}"}
+{"input_text": "Let's review CSS box model.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"CSS box model\"}"}
+{"input_text": "Refresh memory on data cleaning.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"data cleaning\"}"}
+{"input_text": "Review the oldest programming concept.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Help me revise my weakest data science topic.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Review concurrency.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"concurrency\"}"}
+{"input_text": "Go over security basics again.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"security basics\"}"}
+{"input_text": "I want to review OOP.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"OOP\"}"}
+{"input_text": "That's clear now.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Good explanation.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Never mind.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What else can this bot do?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Are you an AI?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Where did you get that info?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Can you write code for me?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Make it stop.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Fascinating.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "I don't get it.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "That's complex.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Sure.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "No thanks.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Exit.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Quit now.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "That is incorrect.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What's your source?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Tell me a story.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What day is it?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "My name is Bob.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Could you quiz me after explaining linked lists?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"linked lists\"}"}
+{"input_text": "Check my knowledge on Python, then ask some questions.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Python\"}"}
+{"input_text": "Review the oldest topic, then summarize it.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "What is a list? Then quiz me.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"list\"}"}
+{"input_text": "Can you test my understanding?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Review status", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Information about AI safety", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"AI safety\"}"}
+{"input_text": "Let's manage my knowledge on databases.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"databases\"}"}
+{"input_text": "Status check required for loops.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"loops\"}"}
+{"input_text": "Quick quiz on that topic", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Summarize context switching.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"context switching\"}"}
+{"input_text": "Help me revise the difficult parts.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "What is the status?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Proceed with the test.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Continue review.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Explain the concept of polymorphism using Java examples.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Java polymorphism examples\"}"}
+{"input_text": "What is Docker?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Docker\"}"}
+{"input_text": "Explain Kubernetes architecture.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Kubernetes architecture\"}"}
+{"input_text": "Tell me about Agile methodology.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Agile methodology\"}"}
+{"input_text": "Summarize the concept of CI/CD.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CI/CD\"}"}
+{"input_text": "Give me the key points about regular expressions.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"regular expressions\"}"}
+{"input_text": "Can you show an example of a Java interface?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Java interface example\"}"}
+{"input_text": "What's the difference between SQL and NoSQL databases?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SQL vs NoSQL\"}"}
+{"input_text": "How do design patterns improve code?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"design patterns benefits\"}"}
+{"input_text": "Elaborate on functional programming paradigms.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"functional programming paradigms\"}"}
+{"input_text": "Describe garbage collection.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"garbage collection\"}"}
+{"input_text": "Info on web sockets please.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"web sockets\"}"}
+{"input_text": "How is system design approached?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"system design approach\"}"}
+{"input_text": "What are microservices?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"microservices\"}"}
+{"input_text": "Explain concurrency vs parallelism.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"concurrency vs parallelism\"}"}
+{"input_text": "Summarize SOLID principles.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SOLID principles\"}"}
+{"input_text": "Quick overview of GraphQL.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"GraphQL\"}"}
+{"input_text": "Tell me more about that concept.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "Explain that in simpler terms.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "Why is that important?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "What about React hooks?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"React hooks\"}"}
+{"input_text": "Talk about cybersecurity threats.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"cybersecurity threats\"}"}
+{"input_text": "What is dependency injection?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"dependency injection\"}"}
+{"input_text": "Definition of cloud computing.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"cloud computing\"}"}
+{"input_text": "How is encryption used?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"encryption usage\"}"}
+{"input_text": "Compare imperative and declarative programming.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"imperative vs declarative programming\"}"}
+{"input_text": "Summarise the main components of an operating system.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"operating system components\"}"}
+{"input_text": "Example of data normalization?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"data normalization example\"}"}
+{"input_text": "What is pair programming?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"pair programming\"}"}
+{"input_text": "Tell me about version control systems.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"version control systems\"}"}
+{"input_text": "Details on TensorFlow Lite please.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"TensorFlow Lite\"}"}
+{"input_text": "Quiz me on Docker commands.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Docker commands\"}"}
+{"input_text": "Test my knowledge about SOLID principles.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"SOLID principles\"}"}
+{"input_text": "Ask me some questions about system design.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"system design\"}"}
+{"input_text": "I want to practice writing regular expressions.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"regular expressions\"}"}
+{"input_text": "What's my level for cloud computing concepts?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"cloud computing concepts\"}"}
+{"input_text": "How well do I know JavaScript ES6 features?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"JavaScript ES6 features\"}"}
+{"input_text": "Check my status on common design patterns.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"common design patterns\"}"}
+{"input_text": "Do I understand microservices architecture?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"microservices architecture\"}"}
+{"input_text": "Let's see how I do on database indexing.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"database indexing\"}"}
+{"input_text": "Test me on CI/CD pipelines.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"CI/CD pipelines\"}"}
+{"input_text": "Am I ready for advanced Git usage?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"advanced Git usage\"}"}
+{"input_text": "Check my Python decorator knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Python decorators\"}"}
+{"input_text": "How am I doing with C# basics?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"C# basics\"}"}
+{"input_text": "Practice linked lists operations.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"linked lists operations\"}"}
+{"input_text": "Quiz time for network layers.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"network layers\"}"}
+{"input_text": "Ask me about authentication vs authorization.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"authentication vs authorization\"}"}
+{"input_text": "Status check on regression analysis.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"regression analysis\"}"}
+{"input_text": "What is my progress on reinforcement learning?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"reinforcement learning\"}"}
+{"input_text": "Challenge me on NumPy.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"NumPy\"}"}
+{"input_text": "Let's practice Go syntax.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Go syntax\"}"}
+{"input_text": "How's my understanding of API security?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"API security\"}"}
+{"input_text": "Hit me with another question.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Next challenge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Let's check my knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Proceed with the quiz.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Review Docker concepts for me.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Docker concepts\"}"}
+{"input_text": "Let's go over Agile principles again.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Agile principles\"}"}
+{"input_text": "I need to review the topic I performed worst on.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Review something related to databases.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"databases\"}"}
+{"input_text": "Help me revise system design interviews.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"system design interviews\"}"}
+{"input_text": "Go over the oldest machine learning concept I learned.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Refresh my memory on Python generators.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Python generators\"}"}
+{"input_text": "Let's review what we covered about APIs last session.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"APIs\"}"}
+{"input_text": "Review the fundamental concepts.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Review CI/CD practices.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"CI/CD practices\"}"}
+{"input_text": "Need a refresher on Kubernetes.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Kubernetes\"}"}
+{"input_text": "Review the most complex topic we discussed.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Go over that networking topic from last month.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Revisit concurrency.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"concurrency\"}"}
+{"input_text": "Let's revise security basics.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"security basics\"}"}
+{"input_text": "Go over data structures fundamentals.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"data structures fundamentals\"}"}
+{"input_text": "Review functional programming.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"functional programming\"}"}
+{"input_text": "Help me review cloud services.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"cloud services\"}"}
+{"input_text": "Revise algorithm analysis.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"algorithm analysis\"}"}
+{"input_text": "Review testing strategies.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"testing strategies\"}"}
+{"input_text": "Morning!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "How are you?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Cheers!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Appreciate the help.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Understood.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Makes sense.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Perfect.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Take care.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Catch you later.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Later!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "That's great.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Good explanation.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What are your capabilities?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Need some assistance.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "qwerty uiop", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Tell me something funny.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What's the weather like?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Stop.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Wait a second.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Okay, tell me about PyTorch.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"PyTorch\"}"}
+{"input_text": "How do I set up a basic Express.js server?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Express.js setup\"}"}
+{"input_text": "What's the CAP theorem all about?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CAP theorem\"}"}
+{"input_text": "Explain different caching strategies like LRU.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"caching strategies\"}"}
+{"input_text": "How does JWT authentication work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"JWT authentication\"}"}
+{"input_text": "Can you show me Rust syntax for error handling?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Rust error handling\"}"}
+{"input_text": "Pros and cons of microservices architecture?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"microservices pros and cons\"}"}
+{"input_text": "What's the event sourcing pattern?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"event sourcing pattern\"}"}
+{"input_text": "Main differences between SQL and NoSQL databases?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SQL vs NoSQL differences\"}"}
+{"input_text": "How is HTTP/2 better than HTTP/1.1?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"HTTP/2 vs HTTP/1.1\"}"}
+{"input_text": "Need info on common Spring Boot annotations.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Spring Boot annotations\"}"}
+{"input_text": "Explain Terraform state management.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Terraform state management\"}"}
+{"input_text": "Swift optionals, can you explain them?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Swift optionals\"}"}
+{"input_text": "Use cases for Kotlin coroutines?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Kotlin coroutines use cases\"}"}
+{"input_text": "What exactly is blockchain?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"blockchain\"}"}
+{"input_text": "Help me understand CSS flexbox alignment.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CSS flexbox alignment\"}"}
+{"input_text": "How do I use pandas groupby effectively?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"pandas groupby usage\"}"}
+{"input_text": "Is there a good tutorial for PyTorch tensors?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"PyTorch tensors tutorial\"}"}
+{"input_text": "Show me a Singleton pattern example in Java.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Java Singleton example\"}"}
+{"input_text": "What are some common Git workflow strategies?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Git workflow strategies\"}"}
+{"input_text": "Explain the MapReduce concept simply.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"MapReduce concept\"}"}
+{"input_text": "Tell me about Ansible playbooks.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Ansible playbooks\"}"}
+{"input_text": "What is a CSRF attack?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CSRF attack\"}"}
+{"input_text": "How does OAuth 2.0 work conceptually?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"OAuth 2.0 concept\"}"}
+{"input_text": "Compare TCP and UDP protocols.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"TCP vs UDP\"}"}
+{"input_text": "What is serverless computing anyway?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"serverless computing\"}"}
+{"input_text": "Explain the purpose of an API gateway.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"API gateway purpose\"}"}
+{"input_text": "Give me basics of game development loops.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"game development loops\"}"}
+{"input_text": "What are embedded systems?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"embedded systems\"}"}
+{"input_text": "How to implement basic authentication?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"basic authentication implementation\"}"}
+{"input_text": "Tell me about Jenkins pipelines.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Jenkins pipelines\"}"}
+{"input_text": "Summarize WebAssembly.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"WebAssembly\"}"}
+{"input_text": "What's the difference between PUT and POST?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"HTTP PUT vs POST\"}"}
+{"input_text": "Describe optimistic vs pessimistic locking.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"optimistic vs pessimistic locking\"}"}
+{"input_text": "Overview of common data science libraries in Python.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python data science libraries\"}"}
+{"input_text": "What is Infrastructure as Code (IaC)?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Infrastructure as Code\"}"}
+{"input_text": "How do load balancers work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"load balancers\"}"}
+{"input_text": "Explain message queues like RabbitMQ or Kafka.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"message queues\"}"}
+{"input_text": "What is SQL injection and how to prevent it?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SQL injection prevention\"}"}
+{"input_text": "Tell me about the Observer design pattern.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Observer design pattern\"}"}
+{"input_text": "What are the key features of C++20?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"C++20 features\"}"}
+{"input_text": "How does DNS resolution work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"DNS resolution\"}"}
+{"input_text": "Explain the concept of virtual DOM.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"virtual DOM\"}"}
+{"input_text": "What are CORS headers?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CORS headers\"}"}
+{"input_text": "Describe the publish-subscribe pattern.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"publish-subscribe pattern\"}"}
+{"input_text": "What is garbage collection in Java?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Java garbage collection\"}"}
+{"input_text": "How to use async/await in C#?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"C# async/await\"}"}
+{"input_text": "Explain idempotency in APIs.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"API idempotency\"}"}
+{"input_text": "Tell me about the Actor model.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Actor model\"}"}
+{"input_text": "What's the role of a CDN?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CDN role\"}"}
+{"input_text": "How do you handle state management in Vue.js?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Vue.js state management\"}"}
+{"input_text": "Give me an overview of cryptography basics.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"cryptography basics\"}"}
+{"input_text": "Explain memory leaks.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"memory leaks\"}"}
+{"input_text": "What is feature engineering in ML?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"ML feature engineering\"}"}
+{"input_text": "How do generators work in Python?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python generators\"}"}
+{"input_text": "Tell me about common web vulnerabilities.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"web vulnerabilities\"}"}
+{"input_text": "What is type hinting in Python?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python type hinting\"}"}
+{"input_text": "Describe the MVC pattern.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"MVC pattern\"}"}
+{"input_text": "How does garbage collection work in JavaScript?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"JavaScript garbage collection\"}"}
+{"input_text": "Explain the concept of sharding in databases.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"database sharding\"}"}
+{"input_text": "What are unit tests?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"unit tests\"}"}
+{"input_text": "Tell me about integration testing.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"integration testing\"}"}
+{"input_text": "What is end-to-end testing?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"end-to-end testing\"}"}
+{"input_text": "How does indexing improve database performance?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"database indexing performance\"}"}
+{"input_text": "Explain ACID properties.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"ACID properties\"}"}
+{"input_text": "What is BASE consistency model?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"BASE consistency\"}"}
+{"input_text": "Tell me about Python decorators.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python decorators\"}"}
+{"input_text": "How do context managers work in Python?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python context managers\"}"}
+{"input_text": "What are Promises in JavaScript?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"JavaScript Promises\"}"}
+{"input_text": "Explain the event loop in Node.js.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Node.js event loop\"}"}
+{"input_text": "What is dependency inversion principle?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"dependency inversion principle\"}"}
+{"input_text": "Tell me about Go interfaces.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Go interfaces\"}"}
+{"input_text": "How does goroutines work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"goroutines\"}"}
+{"input_text": "Explain RAII in C++.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"C++ RAII\"}"}
+{"input_text": "What are smart pointers in C++?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"C++ smart pointers\"}"}
+{"input_text": "Tell me about Java Virtual Machine (JVM).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"JVM\"}"}
+{"input_text": "How does Java handle memory management?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Java memory management\"}"}
+{"input_text": "What are generics in Java?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Java generics\"}"}
+{"input_text": "Explain C# properties.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"C# properties\"}"}
+{"input_text": "What is LINQ in C#?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"C# LINQ\"}"}
+{"input_text": "Tell me about PHP frameworks like Laravel or Symfony.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"PHP frameworks\"}"}
+{"input_text": "How does Composer work in PHP?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"PHP Composer\"}"}
+{"input_text": "What is Ruby on Rails?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Ruby on Rails\"}"}
+{"input_text": "Explain gems in Ruby.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Ruby gems\"}"}
+{"input_text": "What are common security practices for web apps?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"web app security practices\"}"}
+{"input_text": "How to optimize database queries?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"database query optimization\"}"}
+{"input_text": "Tell me about A/B testing.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"A/B testing\"}"}
+{"input_text": "What is feature flagging?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"feature flagging\"}"}
+{"input_text": "Explain canary releases.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"canary releases\"}"}
+{"input_text": "What is blue-green deployment?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"blue-green deployment\"}"}
+{"input_text": "Tell me about monitoring and logging best practices.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"monitoring and logging\"}"}
+{"input_text": "What is Site Reliability Engineering (SRE)?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SRE\"}"}
+{"input_text": "Explain Service Level Objectives (SLOs).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SLOs\"}"}
+{"input_text": "What are error budgets?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"error budgets\"}"}
+{"input_text": "How to handle distributed transactions?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"distributed transactions\"}"}
+{"input_text": "Tell me about consensus algorithms like Paxos or Raft.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"consensus algorithms\"}"}
+{"input_text": "What is eventual consistency?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"eventual consistency\"}"}
+{"input_text": "Explain vector databases.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"vector databases\"}"}
+{"input_text": "What are embeddings in NLP?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"NLP embeddings\"}"}
+{"input_text": "Tell me about transformer models like BERT or GPT.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"transformer models\"}"}
+{"input_text": "How does attention mechanism work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"attention mechanism\"}"}
+{"input_text": "Explain generative AI.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"generative AI\"}"}
+{"input_text": "What are Large Language Models (LLMs)?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"LLMs\"}"}
+{"input_text": "Tell me about prompt engineering.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"prompt engineering\"}"}
+{"input_text": "How to fine-tune an LLM?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"LLM fine-tuning\"}"}
+{"input_text": "What is Reinforcement Learning from Human Feedback (RLHF)?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"RLHF\"}"}
+{"input_text": "Explain ethical considerations in AI.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"AI ethics\"}"}
+{"input_text": "What is explainable AI (XAI)?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"XAI\"}"}
+{"input_text": "Tell me about quantum computing basics.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"quantum computing basics\"}"}
+{"input_text": "What are qubits?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"qubits\"}"}
+{"input_text": "Explain quantum entanglement.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"quantum entanglement\"}"}
+{"input_text": "How might quantum computing affect cryptography?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"quantum computing cryptography impact\"}"}
+{"input_text": "and the downsides?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "what's another way to do that?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "give me one more example", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "why does it work like that?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "what do i need to know before learning that?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "expand on the second point you made", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "is there a simpler explanation?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "what are the alternatives?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "ok, go deeper", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "tell me more", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+{"input_text": "Test me on Python async I/O.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Python async I/O\"}"}
+{"input_text": "Quiz time for Java generics.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Java generics\"}"}
+{"input_text": "Ask me about CAP theorem trade-offs.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"CAP theorem trade-offs\"}"}
+{"input_text": "What's my knowledge level on React state management libraries?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"React state management libraries\"}"}
+{"input_text": "Let's practice writing complex SQL joins.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"complex SQL joins\"}"}
+{"input_text": "Challenge me: Advanced data structures questions.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"advanced data structures\"}"}
+{"input_text": "How am I doing with Kubernetes networking concepts?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Kubernetes networking\"}"}
+{"input_text": "Status check on different Git branching models.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Git branching models\"}"}
+{"input_text": "Am I ready for system design interview practice questions?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"system design interview practice\"}"}
+{"input_text": "Ask me about common HTTP status codes and their meanings.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"HTTP status codes\"}"}
+{"input_text": "Let's practice JavaScript closures again.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"JavaScript closures\"}"}
+{"input_text": "Another question about OOP principles.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"OOP principles\"}"}
+{"input_text": "Quiz time: OSI model layers.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"OSI model layers\"}"}
+{"input_text": "Test my understanding of REST constraints.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"REST constraints\"}"}
+{"input_text": "Evaluate my grasp on Python list comprehensions.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Python list comprehensions\"}"}
+{"input_text": "How proficient am I with CSS Grid?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"CSS Grid\"}"}
+{"input_text": "Check my knowledge regarding database transactions.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"database transactions\"}"}
+{"input_text": "Ask me something about Big Data technologies.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Big Data technologies\"}"}
+{"input_text": "How well do I know sorting algorithm complexities?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"sorting algorithm complexities\"}"}
+{"input_text": "Test me on common security vulnerabilities.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"security vulnerabilities\"}"}
+{"input_text": "Status update on cloud deployment models.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"cloud deployment models\"}"}
+{"input_text": "How's my progress with Dockerfile best practices?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Dockerfile best practices\"}"}
+{"input_text": "I need to test my Java exception hierarchy knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Java exception hierarchy\"}"}
+{"input_text": "Do I know enough about SOLID principles?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"SOLID principles\"}"}
+{"input_text": "Quiz me on algorithm paradigms (greedy, dp, divide and conquer).", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"algorithm paradigms\"}"}
+{"input_text": "Check my level on implementing graph algorithms.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"graph algorithms implementation\"}"}
+{"input_text": "Let's practice binary tree traversals.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"binary tree traversals\"}"}
+{"input_text": "Test my web accessibility (a11y) knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"web accessibility\"}"}
+{"input_text": "How much do I remember about hash collisions?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"hash collisions\"}"}
+{"input_text": "Quiz about C++ memory management.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"C++ memory management\"}"}
+{"input_text": "What's my proficiency in using pandas for data cleaning?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"pandas data cleaning\"}"}
+{"input_text": "ok next question", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "ask me a harder one this time", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "let's switch topics for the quiz", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Can I get a hint?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "I give up, show me the answer", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "check my knowledge on that again", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "ask me something easier", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "let's try another", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "more questions please", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "keep quizzing me", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+{"input_text": "Review session: Focus on SQL subqueries and window functions.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"SQL subqueries and window functions\"}"}
+{"input_text": "Go over JavaScript Promises and async/await again.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"JavaScript Promises and async/await\"}"}
+{"input_text": "Refresh my memory on CSS specificity rules.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"CSS specificity rules\"}"}
+{"input_text": "Let's revise linked list implementation details.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"linked list implementation\"}"}
+{"input_text": "Review the tricky parts of recursion.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"recursion difficulties\"}"}
+{"input_text": "Need a refresher on HTTP methods and idempotency.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"HTTP methods and idempotency\"}"}
+{"input_text": "Go over the basics of Docker networking one more time.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Docker networking basics\"}"}
+{"input_text": "Review what we covered about Python class inheritance.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Python class inheritance\"}"}
+{"input_text": "Revise my weakest area in algorithm analysis.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Can we review the last topic I was quizzed on?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Brush up on concurrency concepts.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"concurrency concepts\"}"}
+{"input_text": "I need to review authentication methods.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"authentication methods\"}"}
+{"input_text": "Let's review system design principles.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"system design principles\"}"}
+{"input_text": "Go over version control workflows again.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"version control workflows\"}"}
+{"input_text": "Review the most challenging subject for me.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "I want to revise C++ pointers.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"C++ pointers\"}"}
+{"input_text": "Quick review on database normalization forms.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"database normalization forms\"}"}
+{"input_text": "Review the oldest programming concept I learned here.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Need a refresher on React lifecycle methods.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"React lifecycle methods\"}"}
+{"input_text": "review that again please", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "let's focus on the part i struggled with", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "can we go over the basics one more time?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "summarize the key points from that review", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "revise that concept", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "review please", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "go over it again", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "need to refresh that topic", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+{"input_text": "Ok, got it, thanks!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Hmm, let me think.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Hold on a sec.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "That wasn't quite what I meant.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Could you explain that differently?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Good bot!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "This is super helpful, thanks.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "I need to take a break.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "See ya!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Tell me a programmer joke.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What exactly can you help me with?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Are you based on GPT-4?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Never mind, forget that last question.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Cancel request.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Stop generating.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "That's enough for now.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Wow!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Interesting...", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "I didn't know that.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Please wait.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Are you sure about that?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Can you provide sources?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "That explanation was confusing.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Good point.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Let's move on.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "What else can you teach me?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "How do you know so much?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Awesome!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Brilliant!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Noted.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "Understood, thanks.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+{"input_text": "gRPC?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"gRPC\"}"}
+ {"input_text": "Explain WebRTC please.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"WebRTC\"}"}
+ {"input_text": "Info on Istio service mesh.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Istio service mesh\"}"}
+ {"input_text": "What are graph databases good for?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"graph database use cases\"}"}
+ {"input_text": "Tell me about time-series databases like InfluxDB.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"time-series databases\"}"}
+ {"input_text": "How does Dijkstra's algorithm work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Dijkstra's algorithm\"}"}
+ {"input_text": "Explain A* search.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"A* search\"}"}
+ {"input_text": "Bias-variance tradeoff in ML?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"bias-variance tradeoff\"}"}
+ {"input_text": "Summarize ensemble methods (like random forest).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"ensemble methods\"}"}
+ {"input_text": "How to use Postman effectively?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Postman usage\"}"}
+ {"input_text": "Wireshark basics?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Wireshark basics\"}"}
+ {"input_text": "What is Hexagonal Architecture?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Hexagonal Architecture\"}"}
+ {"input_text": "Explain Clean Architecture principles.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Clean Architecture principles\"}"}
+ {"input_text": "Show me Python code for Breadth-First Search.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python BFS code\"}"}
+ {"input_text": "What usually causes a NullPointerException in Java?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Java NullPointerException causes\"}"}
+ {"input_text": "WASM explained simply.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"WebAssembly (WASM)\"}"}
+ {"input_text": "What's edge computing?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"edge computing\"}"}
+ {"input_text": "Linkerd vs Istio?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Linkerd vs Istio\"}"}
+ {"input_text": "Describe Bloom filters.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Bloom filters\"}"}
+ {"input_text": "What is Infrastructure as Data?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Infrastructure as Data\"}"}
+ {"input_text": "Explain eventual consistency in distributed systems.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"eventual consistency\"}"}
+ {"input_text": "Can you provide an overview of the Factory design pattern?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Factory design pattern\"}"}
+ {"input_text": "How does garbage collection differ between Python and Java?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Python vs Java garbage collection\"}"}
+ {"input_text": "Tell me the advantages of using TypeScript over JavaScript.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"TypeScript vs JavaScript advantages\"}"}
+ {"input_text": "What are B-trees and how are they used in databases?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"B-trees in databases\"}"}
+ {"input_text": "Explain the concept of memoization in dynamic programming.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"memoization dynamic programming\"}"}
+ {"input_text": "Give me a rundown of common authentication factors (MFA).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"multi-factor authentication (MFA)\"}"}
+ {"input_text": "How do content delivery networks (CDNs) improve website speed?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CDN benefits\"}"}
+ {"input_text": "What are the main components of the Scrum framework?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Scrum framework components\"}"}
+ {"input_text": "Describe the difference between stateful and stateless applications.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"stateful vs stateless applications\"}"}
+ {"input_text": "Can you elaborate on the role of Protocol Buffers in gRPC?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"gRPC Protocol Buffers role\"}"}
+ {"input_text": "What specific problems does a service mesh aim to solve?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"service mesh problems solved\"}"}
+ {"input_text": "I'm trying to choose a database. What are the key differences between relational, document, key-value, and graph databases?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"database type comparison\"}"}
+ {"input_text": "Could you walk me through the steps of A* search using a simple example, maybe highlighting the open and closed sets?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"A* search example walkthrough\"}"}
+ {"input_text": "Regarding the bias-variance tradeoff, how do techniques like cross-validation help in finding a good balance?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"cross-validation and bias-variance tradeoff\"}"}
+ {"input_text": "I'm new to network analysis. Can you explain what kind of information I can typically get by inspecting packets with Wireshark?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Wireshark packet inspection information\"}"}
+ {"input_text": "Explain the core idea behind separating application core logic from infrastructure concerns in Hexagonal Architecture.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Hexagonal Architecture core idea\"}"}
+ {"input_text": "What are the security implications of using WebAssembly in the browser?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"WebAssembly browser security\"}"}
+ {"input_text": "Could you explain how edge computing differs from traditional cloud computing and what benefits it offers for IoT applications?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"edge computing vs cloud computing for IoT\"}"}
+ {"input_text": "What's the difference between imperative and declarative infrastructure management, especially thinking about tools like Ansible vs Terraform?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"imperative vs declarative infrastructure management\"}"}
+ {"input_text": "Test: gRPC concepts.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"gRPC concepts\"}"}
+ {"input_text": "Quiz me on Istio features.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Istio features\"}"}
+ {"input_text": "Practice Dijkstra algorithm.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Dijkstra algorithm\"}"}
+ {"input_text": "Check my A* search knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"A* search\"}"}
+ {"input_text": "How well do I understand bias-variance?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"bias-variance tradeoff\"}"}
+ {"input_text": "Quiz: Ensemble learning techniques.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"ensemble learning techniques\"}"}
+ {"input_text": "Practice using Postman variables.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Postman variables\"}"}
+ {"input_text": "Test me on Clean Architecture layers.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Clean Architecture layers\"}"}
+ {"input_text": "Ask about WASM use cases.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"WebAssembly use cases\"}"}
+ {"input_text": "Check my understanding of edge computing challenges.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"edge computing challenges\"}"}
+ {"input_text": "Quiz: Graph database query languages.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"graph database query languages\"}"}
+ {"input_text": "How's my grasp on time-series data modeling?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"time-series data modeling\"}"}
+ {"input_text": "Test my knowledge of Bloom filter applications.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Bloom filter applications\"}"}
+ {"input_text": "Let's practice identifying design patterns in code snippets.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"design pattern identification\"}"}
+ {"input_text": "Am I good with TypeScript interfaces vs types?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"TypeScript interfaces vs types\"}"}
+ {"input_text": "Quiz me on B-tree properties.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"B-tree properties\"}"}
+ {"input_text": "Check my dynamic programming skills: memoization.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"dynamic programming memoization\"}"}
+ {"input_text": "Ask me about different MFA methods.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"MFA methods\"}"}
+ {"input_text": "Test my CDN configuration knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"CDN configuration\"}"}
+ {"input_text": "How well do I know Scrum roles and events?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Scrum roles and events\"}"}
+ {"input_text": "Quiz: Stateful vs stateless design.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"stateful vs stateless design\"}"}
+ {"input_text": "Can you test my understanding of how traffic splitting works in Istio?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Istio traffic splitting\"}"}
+ {"input_text": "I want to practice choosing the right database type for different scenarios. Give me some use cases.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"database selection scenarios\"}"}
+ {"input_text": "Let's work through applying A* search to a slightly more complex grid. Can you provide one?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"A* search practice problem\"}"}
+ {"input_text": "Quiz me on how techniques like bagging or boosting help reduce variance or bias in ensemble models.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"ensemble methods bias-variance impact\"}"}
+ {"input_text": "I need to test my ability to write simple test scripts in Postman for a given API specification.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Postman test scripting\"}"}
+ {"input_text": "How well do I understand the dependency rule within Clean Architecture?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Clean Architecture dependency rule\"}"}
+ {"input_text": "Ask me some challenging questions about the limitations and potential security risks of WebAssembly.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"WebAssembly limitations and risks\"}"}
+ {"input_text": "Check my knowledge of different edge computing deployment models.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"edge computing deployment models\"}"}
+ {"input_text": "Quiz me on the pros and cons of using Terraform for managing cloud infrastructure.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Terraform pros and cons\"}"}
+ {"input_text": "Next question please", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Ask me another one", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "What else?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Let's keep going", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Review gRPC basics.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"gRPC basics\"}"}
+ {"input_text": "Revisit Istio traffic management.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Istio traffic management\"}"}
+ {"input_text": "Go over Dijkstra's algorithm steps.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Dijkstra's algorithm steps\"}"}
+ {"input_text": "Refresh A* heuristic function.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"A* heuristic function\"}"}
+ {"input_text": "Review bias-variance tradeoff visually.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"bias-variance tradeoff visualization\"}"}
+ {"input_text": "Brush up: Random Forests vs Gradient Boosting.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Random Forests vs Gradient Boosting\"}"}
+ {"input_text": "Review Postman environments.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Postman environments\"}"}
+ {"input_text": "Revisit Clean Architecture diagrams.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Clean Architecture diagrams\"}"}
+ {"input_text": "Review WASM core concepts.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"WebAssembly core concepts\"}"}
+ {"input_text": "Go over edge computing benefits again.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"edge computing benefits\"}"}
+ {"input_text": "Refresh my memory on graph database advantages.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"graph database advantages\"}"}
+ {"input_text": "Let's review time-series database characteristics.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"time-series database characteristics\"}"}
+ {"input_text": "Need a refresher on Bloom filter probability.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Bloom filter false positive probability\"}"}
+ {"input_text": "Review Factory pattern implementation.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Factory pattern implementation\"}"}
+ {"input_text": "Go over TypeScript generics.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"TypeScript generics\"}"}
+ {"input_text": "Revise B-tree insertion/deletion.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"B-tree insertion deletion\"}"}
+ {"input_text": "Brush up on memoization examples.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"memoization examples\"}"}
+ {"input_text": "Review MFA implementation strategies.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"MFA implementation strategies\"}"}
+ {"input_text": "Let's review CDN caching policies.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"CDN caching policies\"}"}
+ {"input_text": "Go over Scrum ceremonies purpose.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Scrum ceremonies purpose\"}"}
+ {"input_text": "Review state management in web apps.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"web app state management\"}"}
+ {"input_text": "Can we quickly recap the main benefits of using gRPC compared to REST?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"gRPC vs REST benefits recap\"}"}
+ {"input_text": "I need to review how service meshes handle observability (metrics, logs, traces).", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"service mesh observability\"}"}
+ {"input_text": "Let's go over the pseudo-code for Dijkstra's algorithm one more time.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Dijkstra's algorithm pseudo-code\"}"}
+ {"input_text": "I'm still unclear on how to choose a good heuristic for A*. Can we review the properties of admissible and consistent heuristics?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"A* heuristic properties\"}"}
+ {"input_text": "Help me revise the concepts of overfitting and underfitting in relation to the bias-variance tradeoff.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"overfitting underfitting bias-variance\"}"}
+ {"input_text": "Could you review how to set up authentication helpers in Postman collections?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Postman authentication helpers\"}"}
+ {"input_text": "Let's quickly go over the ports and adapters concept in Hexagonal Architecture again.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Hexagonal Architecture ports and adapters\"}"}
+ {"input_text": "Need a refresher on the WebAssembly text format (WAT) vs binary format (WASM).", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"WebAssembly text vs binary format\"}"}
+ {"input_text": "Can we review the key drivers behind the push towards edge computing?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"edge computing drivers\"}"}
+ {"input_text": "Summarize that last review point again?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Review the basics once more", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Go over the difficult part", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Refresh it for me", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Okay.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Got it.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Hmm, alright.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Fascinating!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Wait, run that by me again?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Could you simplify that explanation?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "That's quite complex!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Thanks, that really helped!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Perfect explanation.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Whoa, too fast!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Maybe some other time then.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Is that conclusion always valid?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Where did you get that info?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "lol nice", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "...", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "brb gotta grab coffee", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "I'm back.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Is that right?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Hold please", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "That sounds confusing.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "You're a good assistant.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Let's change the subject.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "What other programming topics do you know?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "How were you trained?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Incredible!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Neat.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Acknowledged.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Understood, thank you.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Stop please", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Ok enough", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Clear.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Explain Finite State Machines (FSM).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Finite State Machines (FSM)\"}"}
+ {"input_text": "What is a Turing Machine?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Turing Machine\"}"}
+ {"input_text": "Tell me about the P vs NP problem.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"P vs NP problem\"}"}
+ {"input_text": "What are formal languages in CS?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"formal languages\"}"}
+ {"input_text": "Describe context-free grammars.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"context-free grammars\"}"}
+ {"input_text": "Explain the lexical analysis phase in compilers.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"compiler lexical analysis\"}"}
+ {"input_text": "What does a parser do in a compiler?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"compiler parsing\"}"}
+ {"input_text": "Tell me about code generation in compilers.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"compiler code generation\"}"}
+ {"input_text": "Explain 1NF (First Normal Form).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"1NF (First Normal Form)\"}"}
+ {"input_text": "What are the rules for 2NF?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"2NF (Second Normal Form)\"}"}
+ {"input_text": "Define 3NF (Third Normal Form).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"3NF (Third Normal Form)\"}"}
+ {"input_text": "What is BCNF (Boyce-Codd Normal Form)?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"BCNF (Boyce-Codd Normal Form)\"}"}
+ {"input_text": "How does Support Vector Machine (SVM) work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Support Vector Machine (SVM)\"}"}
+ {"input_text": "Explain K-Nearest Neighbors (KNN).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"K-Nearest Neighbors (KNN)\"}"}
+ {"input_text": "What is the Naive Bayes algorithm?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Naive Bayes algorithm\"}"}
+ {"input_text": "Tell me about serverless functions (like AWS Lambda or Azure Functions).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"serverless functions\"}"}
+ {"input_text": "What are managed databases in the cloud?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"cloud managed databases\"}"}
+ {"input_text": "Explain Virtual Private Clouds (VPCs).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Virtual Private Clouds (VPCs)\"}"}
+ {"input_text": "What is unit testing?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"unit testing\"}"}
+ {"input_text": "Describe integration testing.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"integration testing\"}"}
+ {"input_text": "What is end-to-end (E2E) testing?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"end-to-end testing\"}"}
+ {"input_text": "Explain performance testing.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"performance testing\"}"}
+ {"input_text": "What is security testing?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"security testing\"}"}
+ {"input_text": "How does Selenium work for browser automation?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Selenium browser automation\"}"}
+ {"input_text": "Tell me about Jira for project management.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Jira project management\"}"}
+ {"input_text": "What is Confluence used for?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Confluence usage\"}"}
+ {"input_text": "Explain logic programming (e.g., Prolog).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"logic programming\"}"}
+ {"input_text": "What is concurrent programming?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"concurrent programming\"}"}
+ {"input_text": "How does an FSM transition between states?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"FSM state transitions\"}"}
+ {"input_text": "What are the limitations of a Turing Machine?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Turing Machine limitations\"}"}
+ {"input_text": "Why is P vs NP considered such an important problem?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"P vs NP importance\"}"}
+ {"input_text": "Give an example of a regular language vs a context-free language.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"regular vs context-free language example\"}"}
+ {"input_text": "What kind of errors can be caught during semantic analysis in a compiler?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"compiler semantic analysis errors\"}"}
+ {"input_text": "Why do we normalize databases? What are the benefits?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"database normalization benefits\"}"}
+ {"input_text": "What is the 'kernel trick' in SVM?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SVM kernel trick\"}"}
+ {"input_text": "How do you choose the value of 'K' in KNN?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"KNN choosing K\"}"}
+ {"input_text": "What does the 'naive' assumption in Naive Bayes mean?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Naive Bayes naive assumption\"}"}
+ {"input_text": "Compare serverless functions to traditional server hosting.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"serverless vs traditional servers\"}"}
+ {"input_text": "What are the advantages of using a managed database service?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"managed database advantages\"}"}
+ {"input_text": "How do subnets and security groups work within a VPC?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"VPC subnets and security groups\"}"}
+ {"input_text": "What's the difference between unit tests and integration tests?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"unit vs integration testing\"}"}
+ {"input_text": "Why is E2E testing often considered brittle?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"E2E testing brittleness\"}"}
+ {"input_text": "What metrics are typically measured during performance testing?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"performance testing metrics\"}"}
+ {"input_text": "Give examples of common security vulnerabilities tested for.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"security testing vulnerabilities examples\"}"}
+ {"input_text": "What are Selenium locators (like XPath, CSS selectors)?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Selenium locators\"}"}
+ {"input_text": "How does Jira facilitate Agile workflows?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Jira Agile workflows\"}"}
+ {"input_text": "Can you explain concurrent vs parallel execution?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"concurrent vs parallel execution\"}"}
+ {"input_text": "Could you provide a simple real-world analogy for how a Finite State Machine operates?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"FSM real-world analogy\"}"}
+ {"input_text": "What would be the implications if someone proved P=NP tomorrow?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"P=NP implications\"}"}
+ {"input_text": "Walk me through how a compiler might handle a simple arithmetic expression like 'a = b + 5' through its different phases.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"compiler phases example expression\"}"}
+ {"input_text": "I'm confused about database normalization. Can you explain the difference between 3NF and BCNF with a clear example?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"3NF vs BCNF example\"}"}
+ {"input_text": "For the KNN algorithm, what are the potential drawbacks of using a very small or very large value for K?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"KNN K value drawbacks\"}"}
+ {"input_text": "Explain the concept of 'cold starts' in serverless functions and how they can impact performance.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"serverless cold starts\"}"}
+ {"input_text": "What are the key differences in responsibility between unit tests, integration tests, and end-to-end tests in a typical software project?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"testing types responsibilities\"}"}
+ {"input_text": "How does Selenium WebDriver interact with a web browser to automate actions like clicking buttons or filling forms?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Selenium WebDriver interaction\"}"}
+ {"input_text": "What are some common challenges encountered when implementing concurrent programs, such as race conditions or deadlocks?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"concurrent programming challenges\"}"}
+ {"input_text": "Test: FSM design.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"FSM design\"}"}
+ {"input_text": "Quiz me on Turing Machine components.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Turing Machine components\"}"}
+ {"input_text": "Ask about NP-complete problems.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"NP-complete problems\"}"}
+ {"input_text": "Check my understanding of formal grammars.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"formal grammars\"}"}
+ {"input_text": "Practice compiler phases.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"compiler phases\"}"}
+ {"input_text": "Quiz: Database normalization rules.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"database normalization rules\"}"}
+ {"input_text": "Test my SVM knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"SVM\"}"}
+ {"input_text": "How well do I know KNN?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"KNN\"}"}
+ {"input_text": "Ask me about Naive Bayes assumptions.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Naive Bayes assumptions\"}"}
+ {"input_text": "Check my serverless concepts knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"serverless concepts\"}"}
+ {"input_text": "Quiz: VPC configuration.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"VPC configuration\"}"}
+ {"input_text": "Test me on testing types differences.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"testing types differences\"}"}
+ {"input_text": "How proficient am I with Selenium selectors?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Selenium selectors\"}"}
+ {"input_text": "Ask about Agile workflows in Jira.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Jira Agile workflows\"}"}
+ {"input_text": "Check my concurrency vs parallelism understanding.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"concurrency vs parallelism\"}"}
+ {"input_text": "Quiz me on logic programming basics.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"logic programming basics\"}"}
+ {"input_text": "Let's practice identifying if a problem is likely in P or NP.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"P vs NP problem identification\"}"}
+ {"input_text": "Test my ability to convert a simple requirement into a state diagram for an FSM.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"FSM state diagram design\"}"}
+ {"input_text": "Ask me questions about the parsing techniques like LL or LR.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"compiler parsing techniques\"}"}
+ {"input_text": "Quiz me on identifying normalization violations in a given table schema.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"database normalization violations\"}"}
+ {"input_text": "How well do I understand the concept of support vectors in SVM?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"SVM support vectors\"}"}
+ {"input_text": "Let's practice applying the Naive Bayes formula to a small dataset.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Naive Bayes calculation practice\"}"}
+ {"input_text": "Test my knowledge of serverless deployment strategies.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"serverless deployment strategies\"}"}
+ {"input_text": "Ask me about different types of performance testing (load, stress, soak).", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"performance testing types\"}"}
+ {"input_text": "Quiz me on writing basic Selenium scripts to interact with web elements.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Selenium basic scripting\"}"}
+ {"input_text": "How well do I grasp common concurrency patterns?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"concurrency patterns\"}"}
+ {"input_text": "Another one", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Next test question", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Ask me something else on that topic", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Keep the questions coming", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Review FSM examples.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"FSM examples\"}"}
+ {"input_text": "Revisit Turing Machine definition.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Turing Machine definition\"}"}
+ {"input_text": "Go over P vs NP explanation again.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"P vs NP explanation\"}"}
+ {"input_text": "Refresh formal language hierarchy (Chomsky).", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Chomsky hierarchy\"}"}
+ {"input_text": "Review compiler lexical analysis.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"compiler lexical analysis\"}"}
+ {"input_text": "Brush up: Database Normal Forms (1NF-BCNF).", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"database normal forms (1NF-BCNF)\"}"}
+ {"input_text": "Review SVM intuition.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"SVM intuition\"}"}
+ {"input_text": "Revisit KNN algorithm steps.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"KNN algorithm steps\"}"}
+ {"input_text": "Go over Naive Bayes example.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Naive Bayes example\"}"}
+ {"input_text": "Refresh serverless pros and cons.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"serverless pros and cons\"}"}
+ {"input_text": "Review VPC networking basics.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"VPC networking basics\"}"}
+ {"input_text": "Brush up on the testing pyramid.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"testing pyramid\"}"}
+ {"input_text": "Review Selenium common commands.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Selenium common commands\"}"}
+ {"input_text": "Revisit Jira issue types.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Jira issue types\"}"}
+ {"input_text": "Go over concurrent programming primitives (locks, semaphores).", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"concurrent programming primitives\"}"}
+ {"input_text": "Review logic programming principles.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"logic programming principles\"}"}
+ {"input_text": "Can we go over the definition of NP-hardness again?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"NP-hardness definition\"}"}
+ {"input_text": "I need a refresher on how context-free grammars are used in parsing.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"context-free grammars parsing\"}"}
+ {"input_text": "Let's quickly review the purpose of each database normal form (1NF to 3NF).", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"database normal forms purpose\"}"}
+ {"input_text": "Help me revise the concept of the 'margin' in Support Vector Machines.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"SVM margin concept\"}"}
+ {"input_text": "Could you review the different distance metrics used in KNN?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"KNN distance metrics\"}"}
+ {"input_text": "Let's go over the challenges associated with serverless architectures.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"serverless architecture challenges\"}"}
+ {"input_text": "Review the difference between load testing and stress testing.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"load vs stress testing\"}"}
+ {"input_text": "I need to refresh my memory on how to handle waits in Selenium.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Selenium waits\"}"}
+ {"input_text": "Can we review the common pitfalls of concurrent programming?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"concurrent programming pitfalls\"}"}
+ {"input_text": "Summarize that again?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Go over the main points", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Refresh my memory", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Review the key concept", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Alright.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Roger that.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Hmm, I see.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Mind blown!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Say that again?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Can you make that simpler?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "That's dense.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Many thanks!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Crystal clear.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Bit too quick there.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Maybe not now.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Are there exceptions?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Reference?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "hehe", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "sec", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "ok i'm back", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Is that accurate?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Hang on", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "That wording is odd.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "You're quite helpful.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Let's try a different angle.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "What other CS theory do you cover?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "What model are you?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Stellar!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Sweet.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Copy that.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Much appreciated.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Hold.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Finished for today", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Check.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Compare DFA and NFA.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"DFA vs NFA\"}"}
+ {"input_text": "What exactly is the halting problem?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"halting problem\"}"}
+ {"input_text": "Give me the basics of lambda calculus.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"lambda calculus basics\"}"}
+ {"input_text": "Explain Trie data structure.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Trie data structure\"}"}
+ {"input_text": "How does a Fenwick tree (BIT) work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Fenwick tree (BIT)\"}"}
+ {"input_text": "What are segment trees used for?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"segment tree use cases\"}"}
+ {"input_text": "Bellman-Ford algorithm explanation.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Bellman-Ford algorithm\"}"}
+ {"input_text": "Describe the Floyd-Warshall algorithm.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Floyd-Warshall algorithm\"}"}
+ {"input_text": "How does the KMP string searching algorithm work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"KMP algorithm\"}"}
+ {"input_text": "Explain Rabin-Karp algorithm.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Rabin-Karp algorithm\"}"}
+ {"input_text": "What are Aggregates in Domain-Driven Design (DDD)?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"DDD Aggregates\"}"}
+ {"input_text": "Tell me about the CQRS pattern.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CQRS pattern\"}"}
+ {"input_text": "What is Event Storming?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Event Storming\"}"}
+ {"input_text": "List some common code smells.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"common code smells\"}"}
+ {"input_text": "What are some code refactoring techniques?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"code refactoring techniques\"}"}
+ {"input_text": "Compare B-tree, Hash, and Bitmap database indexes.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"database index types comparison\"}"}
+ {"input_text": "Explain database transaction isolation levels.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"database transaction isolation levels\"}"}
+ {"input_text": "What are different database replication strategies?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"database replication strategies\"}"}
+ {"input_text": "WebSockets deep dive: how do they maintain connection?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"WebSockets connection maintenance\"}"}
+ {"input_text": "Server-Sent Events (SSE) vs WebSockets: when to use which?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SSE vs WebSockets usage\"}"}
+ {"input_text": "What are the main benefits of HTTP/3 and QUIC?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"HTTP/3 QUIC benefits\"}"}
+ {"input_text": "Tell me about Progressive Web Apps (PWAs).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Progressive Web Apps (PWAs)\"}"}
+ {"input_text": "How does WebAssembly (WASM) interact with JavaScript?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"WebAssembly JavaScript interop\"}"}
+ {"input_text": "How to create and use Terraform modules?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Terraform modules usage\"}"}
+ {"input_text": "What is the purpose of a Kubernetes Operator?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Kubernetes Operator purpose\"}"}
+ {"input_text": "Explain the principles of Chaos Engineering.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Chaos Engineering principles\"}"}
+ {"input_text": "What is GitOps?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"GitOps\"}"}
+ {"input_text": "Define Service Level Indicators (SLIs).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Service Level Indicators (SLIs)\"}"}
+ {"input_text": "What are common anomaly detection techniques?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"anomaly detection techniques\"}"}
+ {"input_text": "Explain collaborative filtering vs content-based recommendation.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"collaborative filtering vs content-based recommendation\"}"}
+ {"input_text": "Describe PCA and t-SNE for dimensionality reduction.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"PCA vs t-SNE dimensionality reduction\"}"}
+ {"input_text": "How do Generative Adversarial Networks (GANs) work?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Generative Adversarial Networks (GANs)\"}"}
+ {"input_text": "Compare OAuth 2.0 flows (Authorization Code, Implicit, etc.).", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"OAuth 2.0 flows comparison\"}"}
+ {"input_text": "What is OpenID Connect (OIDC)?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"OpenID Connect (OIDC)\"}"}
+ {"input_text": "Explain SHA-256 hash function.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SHA-256 hash function\"}"}
+ {"input_text": "Symmetric vs asymmetric encryption: key differences.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"symmetric vs asymmetric encryption\"}"}
+ {"input_text": "How does the Rust borrow checker prevent memory errors?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Rust borrow checker memory safety\"}"}
+ {"input_text": "Explain Go channels for concurrency.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Go channels concurrency\"}"}
+ {"input_text": "What are Swift protocols and how are they used?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Swift protocols usage\"}"}
+ {"input_text": "Give examples of Kotlin extension functions.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Kotlin extension functions examples\"}"}
+ {"input_text": "What's the difference between a Mealy and Moore machine (FSM types)?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Mealy vs Moore machine\"}"}
+ {"input_text": "Is the halting problem decidable?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"halting problem decidability\"}"}
+ {"input_text": "How is lambda calculus related to functional programming?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"lambda calculus functional programming relation\"}"}
+ {"input_text": "What are the performance characteristics of Trie lookups?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Trie lookup performance\"}"}
+ {"input_text": "When would I use a Fenwick tree over a segment tree?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Fenwick tree vs segment tree\"}"}
+ {"input_text": "How does Bellman-Ford detect negative cycles?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Bellman-Ford negative cycle detection\"}"}
+ {"input_text": "What's the time complexity of Floyd-Warshall?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Floyd-Warshall time complexity\"}"}
+ {"input_text": "Explain the preprocessing step (LPS array) in KMP.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"KMP preprocessing LPS array\"}"}
+ {"input_text": "How does Rabin-Karp use hashing for string matching?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Rabin-Karp hashing\"}"}
+ {"input_text": "What is the role of a Repository in DDD?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"DDD Repository role\"}"}
+ {"input_text": "Why would you choose to implement CQRS?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"CQRS benefits reasons\"}"}
+ {"input_text": "What kind of insights can Event Storming provide?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Event Storming insights\"}"}
+ {"input_text": "Give an example of the 'Large Class' code smell.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Large Class code smell example\"}"}
+ {"input_text": "Explain the 'Extract Method' refactoring technique.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Extract Method refactoring\"}"}
+ {"input_text": "What are the trade-offs of using Bitmap indexes?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Bitmap index trade-offs\"}"}
+ {"input_text": "Describe the 'Serializable' transaction isolation level.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Serializable isolation level\"}"}
+ {"input_text": "Explain master-slave vs multi-master replication.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"master-slave vs multi-master replication\"}"}
+ {"input_text": "What are the challenges with WebSocket connections?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"WebSocket challenges\"}"}
+ {"input_text": "How do Progressive Web Apps work offline?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"PWA offline functionality\"}"}
+ {"input_text": "What performance benefits does WASM offer over JS?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"WASM vs JS performance\"}"}
+ {"input_text": "How do Terraform modules promote reusability?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Terraform modules reusability\"}"}
+ {"input_text": "What's the difference between a Kubernetes Operator and a Helm chart?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Kubernetes Operator vs Helm chart\"}"}
+ {"input_text": "Give an example of a chaos engineering experiment.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"chaos engineering experiment example\"}"}
+ {"input_text": "How does GitOps ensure consistency between Git and the cluster state?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"GitOps consistency mechanism\"}"}
+ {"input_text": "What's the relationship between SLIs, SLOs, and SLAs?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"SLI SLO SLA relationship\"}"}
+ {"input_text": "Describe statistical methods for anomaly detection.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"statistical anomaly detection methods\"}"}
+ {"input_text": "How do recommendation systems handle the cold start problem?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"recommendation system cold start problem\"}"}
+ {"input_text": "When is PCA more suitable than t-SNE?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"PCA vs t-SNE suitability\"}"}
+ {"input_text": "What are the 'generator' and 'discriminator' in a GAN?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"GAN generator discriminator\"}"}
+ {"input_text": "Explain the Implicit flow in OAuth 2.0 and its security risks.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"OAuth 2.0 Implicit flow risks\"}"}
+ {"input_text": "How does OIDC build upon OAuth 2.0?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"OIDC vs OAuth 2.0\"}"}
+ {"input_text": "Why are cryptographic hash functions like SHA-256 one-way?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"cryptographic hash one-way property\"}"}
+ {"input_text": "Give an example where asymmetric encryption is preferred.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"asymmetric encryption use case\"}"}
+ {"input_text": "What are lifetimes in Rust?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Rust lifetimes\"}"}
+ {"input_text": "How do Go channels prevent race conditions?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Go channels race condition prevention\"}"}
+ {"input_text": "Explain protocol-oriented programming in Swift.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Swift protocol-oriented programming\"}"}
+ {"input_text": "What is the 'receiver type' in Kotlin extension functions?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Kotlin extension functions receiver type\"}"}
+ {"input_text": "Could you provide a more complex example of applying DDD principles to a software design problem?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"complex DDD example\"}"}
+ {"input_text": "Walk me through the potential consistency issues that can arise with lower database transaction isolation levels like Read Committed.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Read Committed consistency issues\"}"}
+ {"input_text": "What are the practical steps involved in setting up a basic GitOps workflow using a tool like Argo CD or Flux?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"GitOps workflow setup steps\"}"}
+ {"input_text": "Explain how Generative Adversarial Networks can be used for tasks like image generation or style transfer.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"GAN applications image generation style transfer\"}"}
+ {"input_text": "Describe the Authorization Code flow with PKCE in OAuth 2.0 and why it's recommended for public clients like mobile apps.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"OAuth 2.0 Authorization Code PKCE flow\"}"}
+ {"input_text": "How does Rust's ownership system contribute to its performance advantages, particularly compared to languages with garbage collection?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Rust ownership performance\"}"}
+ {"input_text": "Okay, so how does an NFA differ practically from a DFA?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+ {"input_text": "What makes the halting problem unsolvable?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+ {"input_text": "Following up on DDD, what's a Value Object?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"DDD Value Object\"}"}
+ {"input_text": "Can you give another example of a code smell?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+ {"input_text": "What's the difference between Read Uncommitted and Read Committed isolation?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+ {"input_text": "How does chaos engineering actually improve resilience?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"}
+ {"input_text": "What's another dimensionality reduction technique besides PCA/t-SNE?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"other dimensionality reduction techniques\"}"}
+ {"input_text": "Tell me more about the Client Credentials flow in OAuth 2.0.", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"OAuth 2.0 Client Credentials flow\"}"}
+ {"input_text": "Besides channels, what other concurrency features does Go offer?", "target_json": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"Go concurrency features\"}"}
+ {"input_text": "Test me on finite automata.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"finite automata\"}"}
+ {"input_text": "Quiz: Computability theory basics.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"computability theory basics\"}"}
+ {"input_text": "Ask me about lambda calculus reduction.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"lambda calculus reduction\"}"}
+ {"input_text": "Check my Trie implementation knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Trie implementation\"}"}
+ {"input_text": "Practice Fenwick tree queries.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Fenwick tree queries\"}"}
+ {"input_text": "Quiz: Bellman-Ford vs Dijkstra.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Bellman-Ford vs Dijkstra\"}"}
+ {"input_text": "Test my KMP algorithm understanding.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"KMP algorithm\"}"}
+ {"input_text": "How well do I know DDD concepts?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"DDD concepts\"}"}
+ {"input_text": "Ask me about CQRS trade-offs.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"CQRS trade-offs\"}"}
+ {"input_text": "Check my knowledge of code smells.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"code smells\"}"}
+ {"input_text": "Practice identifying refactoring opportunities.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"refactoring opportunities\"}"}
+ {"input_text": "Quiz: Database index selection.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"database index selection\"}"}
+ {"input_text": "Test me on transaction isolation phenomena.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"transaction isolation phenomena\"}"}
+ {"input_text": "How proficient am I with WebSocket APIs?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"WebSocket APIs\"}"}
+ {"input_text": "Ask about PWA manifest properties.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"PWA manifest properties\"}"}
+ {"input_text": "Check my Terraform module syntax.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Terraform module syntax\"}"}
+ {"input_text": "Practice designing chaos experiments.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"designing chaos experiments\"}"}
+ {"input_text": "Quiz: GitOps tools (ArgoCD, Flux).", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"GitOps tools\"}"}
+ {"input_text": "Test my understanding of SLIs vs metrics.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"SLIs vs metrics\"}"}
+ {"input_text": "How well do I know anomaly detection algorithms?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"anomaly detection algorithms\"}"}
+ {"input_text": "Ask me about recommendation system evaluation.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"recommendation system evaluation\"}"}
+ {"input_text": "Check my PCA implementation knowledge.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"PCA implementation\"}"}
+ {"input_text": "Practice GAN concepts.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"GAN concepts\"}"}
+ {"input_text": "Quiz: OAuth 2.0 grant types.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"OAuth 2.0 grant types\"}"}
+ {"input_text": "Test me on OIDC flows.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"OIDC flows\"}"}
+ {"input_text": "How proficient am I with cryptographic hashes?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"cryptographic hashes\"}"}
+ {"input_text": "Ask about Rust ownership rules.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Rust ownership rules\"}"}
+ {"input_text": "Check my Go channel usage.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Go channel usage\"}"}
+ {"input_text": "Practice Swift protocol extensions.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Swift protocol extensions\"}"}
+ {"input_text": "Quiz: Kotlin extension function syntax.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Kotlin extension function syntax\"}"}
+ {"input_text": "Let's try a harder question on computability.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Ask me to compare KMP and Rabin-Karp.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"KMP vs Rabin-Karp\"}"}
+ {"input_text": "Test my ability to choose the right DDD pattern.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"DDD pattern selection\"}"}
+ {"input_text": "Quiz me on identifying specific code smells from descriptions.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"code smell identification\"}"}
+ {"input_text": "Check my knowledge of Repeatable Read isolation level.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Repeatable Read isolation level\"}"}
+ {"input_text": "Ask me about setting up a PWA service worker.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"PWA service worker setup\"}"}
+ {"input_text": "Test my understanding of Kubernetes Operator reconciliation loops.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Kubernetes Operator reconciliation loop\"}"}
+ {"input_text": "How well do I know different types of recommendation algorithms?", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"recommendation algorithms types\"}"}
+ {"input_text": "Quiz me on the security aspects of different OAuth 2.0 flows.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"OAuth 2.0 flow security\"}"}
+ {"input_text": "Check my understanding of Rust's borrowing rules with examples.", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"Rust borrowing examples\"}"}
+ {"input_text": "Next", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "More", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Another quiz question", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Continue test", "target_json": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": null}"}
+ {"input_text": "Review DFAs and NFAs.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"DFA and NFA\"}"}
+ {"input_text": "Revisit the halting problem proof idea.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"halting problem proof idea\"}"}
+ {"input_text": "Go over lambda calculus syntax.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"lambda calculus syntax\"}"}
+ {"input_text": "Refresh Trie structure.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Trie structure\"}"}
+ {"input_text": "Review Fenwick tree updates.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Fenwick tree updates\"}"}
+ {"input_text": "Brush up: Bellman-Ford algorithm.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Bellman-Ford algorithm\"}"}
+ {"input_text": "Review KMP failure function calculation.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"KMP failure function calculation\"}"}
+ {"input_text": "Revisit DDD bounded contexts.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"DDD bounded contexts\"}"}
+ {"input_text": "Go over CQRS implementation patterns.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"CQRS implementation patterns\"}"}
+ {"input_text": "Refresh common code smells and fixes.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"code smells and fixes\"}"}
+ {"input_text": "Review database indexing best practices.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"database indexing best practices\"}"}
+ {"input_text": "Brush up on transaction isolation levels summary.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"transaction isolation levels summary\"}"}
+ {"input_text": "Review WebSocket handshake.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"WebSocket handshake\"}"}
+ {"input_text": "Revisit PWA installation criteria.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"PWA installation criteria\"}"}
+ {"input_text": "Go over Terraform state management review.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Terraform state management\"}"}
+ {"input_text": "Refresh chaos engineering benefits.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"chaos engineering benefits\"}"}
+ {"input_text": "Review GitOps workflow.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"GitOps workflow\"}"}
+ {"input_text": "Brush up on SLI examples.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"SLI examples\"}"}
+ {"input_text": "Review anomaly detection approaches.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"anomaly detection approaches\"}"}
+ {"input_text": "Revisit recommendation system types.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"recommendation system types\"}"}
+ {"input_text": "Go over PCA vs t-SNE differences.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"PCA vs t-SNE differences\"}"}
+ {"input_text": "Refresh GAN training process.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"GAN training process\"}"}
+ {"input_text": "Review OAuth 2.0 roles (client, resource owner, etc.).", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"OAuth 2.0 roles\"}"}
+ {"input_text": "Brush up on OIDC identity tokens.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"OIDC identity tokens\"}"}
+ {"input_text": "Review symmetric vs asymmetric key usage.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"symmetric vs asymmetric key usage\"}"}
+ {"input_text": "Revisit Rust borrow checker rules.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Rust borrow checker rules\"}"}
+ {"input_text": "Go over Go channel patterns (fan-in/out).", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Go channel patterns\"}"}
+ {"input_text": "Refresh Swift protocols vs classes.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Swift protocols vs classes\"}"}
+ {"input_text": "Review Kotlin extension function scope.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Kotlin extension function scope\"}"}
+ {"input_text": "Can we review the concept of computability again?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"computability concept\"}"}
+ {"input_text": "I need a refresher on the Aggregates pattern in DDD.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"DDD Aggregates pattern\"}"}
+ {"input_text": "Let's go over the 'Extract Class' refactoring technique.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Extract Class refactoring\"}"}
+ {"input_text": "Review the 'Repeatable Read' isolation level and phantom reads.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Repeatable Read phantom reads\"}"}
+ {"input_text": "Brush up on the core principles of GitOps.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"GitOps core principles\"}"}
+ {"input_text": "I need to review the difference between collaborative filtering and content-based filtering.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"collaborative vs content-based filtering\"}"}
+ {"input_text": "Let's review the Authorization Code flow in OAuth 2.0.", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"OAuth 2.0 Authorization Code flow\"}"}
+ {"input_text": "Can we go over Rust's concept of lifetimes again?", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": \"Rust lifetimes concept\"}"}
+ {"input_text": "Summarize that review", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Review the highlights", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Go over that concept again slowly", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "Refresh this topic please", "target_json": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}
+ {"input_text": "k", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Affirmative.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Indeed.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "My brain hurts.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Come again?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "In layman's terms?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "That's a lot to take in.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Greatly appreciated!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Understood perfectly.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "A bit fast, maybe?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Let's pause here.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Are there other ways to think about that?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Link?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "haha", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "gimme a minute", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "ok back", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "You sure?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Just a moment", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "That phrasing is confusing.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Solid help, thanks.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Let's switch gears.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "What other advanced topics can you cover?", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Tell me about your training data.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Fantastic!", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Rad.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "10-4", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Thanks a bunch.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Wait.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "That's all for now.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}
+ {"input_text": "Done.", "target_json": "{\"intent\": \"OTHER\", \"topic\": null}"}

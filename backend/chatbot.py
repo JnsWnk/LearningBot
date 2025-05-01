@@ -1,164 +1,243 @@
 import json
 import time
 import torch
+import requests
 from pymongo.collection import Collection # For type hinting
 
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import db
+import prompts
 import schemas # If needed here, or pass data directly
 import config
 
-def interpret_intent(user_input: str, llm, tokenizer) -> dict:
-    print(f"  CHATBOT: Interpreting intent for: '{user_input}'")
-    # Define intents and prompt
-    intent_list = "[ASK_QUESTION, REQUEST_QUIZ, SUMMARIZE_TOPIC, OTHER]"
-    classifier_prompt = f"""Analyze user intent and topic. Output ONLY JSON.
-Intent list: "{intent_list}"
-User: "what is python?"
-JSON: {{"intent": "ASK_QUESTION", "topic": "python"}}
+# API Configuration
+API_CONFIG = {
+    "base_url": "https://genai.hkbu.edu.hk/general/rest",
+    "model": "gpt-4-o",
+    "api_version": "2024-10-21"
+}
 
-User: "quiz me on data structures"
-JSON: {{"intent": "REQUEST_QUIZ", "topic": "data structures"}}
 
-User: "thanks"
-JSON: {{"intent": "OTHER", "topic": null}}
-
-User: "{user_input}"
-JSON:"""
-    try:
-        inputs = tokenizer(classifier_prompt, return_tensors="pt").to(llm.device)
-        with torch.no_grad():
-            outputs = llm.generate(**inputs, max_new_tokens=50, temperature=0.1, do_sample=False, pad_token_id=tokenizer.eos_token_id)
-        result_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        json_part = result_text[len(classifier_prompt):].strip()
-        print(f"  CHATBOT NLU Raw Output: {json_part}")
-        try:
-            parsed = json.loads(json_part)
+def interpret_intent(user_input: str, nlu_model, nlu_tokenizer, use_gpt4: bool = False) -> dict:
+    if use_gpt4:
+        intent_list = ["GET_INFORMATION", "MANAGE_KNOWLEDGE", "REQUEST_REVIEW", "OTHER"]
+        messages = prompts.create_nlu_prompt_messages(user_input, intent_list)
+        result = generate_response(messages, nlu_model, nlu_tokenizer, True)
+        try: 
+            parsed = json.loads(result)
             intent = parsed.get("intent", "OTHER")
             topic = parsed.get("topic")
-            # Basic validation
-            if intent not in intent_list.replace("[","").replace("]","").split(", "):
-                 intent="OTHER"
-            print(f"  CHATBOT NLU Parsed: Intent={intent}, Topic={topic}")
+            if intent not in intent_list:
+                intent = "OTHER"
             return {"intent": intent, "topic": topic}
         except json.JSONDecodeError:
-            print("  CHATBOT NLU Error: Could not parse JSON response.")
             return {"intent": "OTHER", "topic": None}
-    except Exception as e:
-        print(f"  CHATBOT NLU Error during generation: {e}")
-        return {"intent": "ERROR", "topic": None}
+    else:
+        return interpret_intent_flan(user_input, nlu_model, nlu_tokenizer)
 
-# --- RAG Function ---
+def interpret_intent_flan(user_input: str, nlu_model, nlu_tokenizer) -> dict:
+    PREFIX = "Classify intent and extract topic: "
+    prompt = f"{PREFIX}{user_input}"
+    print(f"  NLU Prompt: {prompt}") # Good to see the prompt
+
+    try:
+        inputs = nlu_tokenizer(prompt, return_tensors="pt", max_length=128, truncation=True).to(nlu_model.device) # Shortened max_length slightly
+
+        with torch.no_grad():
+            outputs = nlu_model.generate(
+                **inputs,
+                max_new_tokens=50,
+                temperature=0.1, 
+                do_sample=False
+            )
+        result_text = nlu_tokenizer.decode(outputs[0], skip_special_tokens=True).strip() # Use strip()
+        print(f"  CHATBOT NLU Raw Output (FLAN-T5): '{result_text}'") # Log raw output
+
+        if ':' in result_text and '"' in result_text:
+            json_string_to_parse = "{" + result_text + "}"
+            print(f"  CHATBOT NLU Attempting to parse: '{json_string_to_parse}'")
+            try:
+                parsed = json.loads(json_string_to_parse)
+                intent = parsed.get("intent", "OTHER") # Default to OTHER if key missing
+                topic = parsed.get("topic") # Get topic (can be null)
+
+                valid_intents = ["GET_INFORMATION", "MANAGE_KNOWLEDGE", "REQUEST_REVIEW", "OTHER"]
+                if intent not in valid_intents:
+                    print(f"  CHATBOT NLU Warning: Parsed intent '{intent}' not in valid list. Defaulting to OTHER.")
+                    intent = "OTHER"
+
+                print(f"  CHATBOT NLU Parsed: Intent={intent}, Topic={topic}")
+                return {"intent": intent, "topic": topic}
+
+            except json.JSONDecodeError as json_err:
+                print(f"  CHATBOT NLU Error: JSONDecodeError after adding braces: {json_err}")
+                print(f"  String that failed parsing: '{json_string_to_parse}'")
+                # Fallback if parsing still fails (e.g., malformed content)
+                return {"intent": "OTHER", "topic": None}
+        else:
+            print("  CHATBOT NLU Warning: Output doesn't look like key-value pairs. Defaulting to OTHER.")
+            return {"intent": "OTHER", "topic": None}
+
+    except Exception as e:
+        print(f"  CHATBOT NLU Error during generation or processing: {e}")
+        return {"intent": "ERROR", "topic": None} # Indicate a system error
+
 def retrieve_context(query_text: str, embedding_model, index_name: str, k: int = 3) -> str:
-    print(f"  CHATBOT: Retrieving RAG context for: '{query_text}'")
-    if not query_text: return "No query provided for context retrieval."
+    if not query_text:
+        return "No query provided for context retrieval."
     try:
         query_vector = embedding_model.encode(query_text).tolist()
         pipeline = [
             {'$vectorSearch': {
-                'index': index_name, 'path': 'embedding_vector',
+                'index': index_name,
+                'path': 'embedding_vector',
                 'queryVector': query_vector,
-                'numCandidates': 100, 'limit': k
+                'numCandidates': 100,
+                'limit': k
             }},
             {'$project': {'_id': 0, 'text_chunk': 1, 'score': {'$meta': 'vectorSearchScore'}}}
         ]
-        results = list(db.users_collection.aggregate(pipeline))
+        results = list(db.docs_collection.aggregate(pipeline))
         context = "\n---\n".join([f"Context: {res['text_chunk']} (Score: {res['score']:.4f})" for res in results])
-        print(f"  CHATBOT: Retrieved {len(results)} context chunks.")
         return context if context else "No relevant context found in the database."
     except Exception as e:
-        print(f"  CHATBOT Error during RAG retrieval: {e}")
+        print(f"Error during RAG retrieval: {e}")
         return "Error retrieving context."
 
-def format_rag_prompt(query_text: str, context: str) -> str:
-    """Formats the prompt for the LLM."""
-    prompt = f"""### Instruction:
-Provide a comprehensive and detailed answer to the following question based on the provided context preferably and your own knowledge if applicable.
-If the information from the context is not fitting or not enough and you are not sure about the answer, say so.
-
-Context:
-{context}
-
-Question: {query_text}
-
-### Response:
-"""
-    return prompt
-
-# --- LLM Generation ---
-def generate_llm_answer(prompt: str, llm, tokenizer) -> str:
-    print(f"  CHATBOT: Generating LLM answer...")
+def generate_response(prompt, model, tokenizer, use_gpt4=True) -> str:
     try:
-        # Consider adjusting max_length based on model limits and context size
-        inputs = tokenizer(prompt, return_tensors="pt", padding=False, truncation=True, max_length=1800).to(llm.device)
+        if use_gpt4:
+            try:
+                url = f"{API_CONFIG['base_url']}/deployments/{API_CONFIG['model']}/chat/completions/?api-version={API_CONFIG['api_version']}"
+                headers = {'Content-Type': 'application/json', 'api-key': config.GPT_KEY}
+                payload = {'messages': prompt}
+                
+                response = requests.post(url, json=payload, headers=headers)
+                response.raise_for_status()
+                
+                result = response.json()
+                return result['choices'][0]['message']['content'].strip()
+            except Exception as e:
+                print(f"Error during GPT-4 generation: {e}")
+                return "Error generating response from GPT-4."
+        
+        inputs = tokenizer(prompt, return_tensors="pt", padding=False, truncation=True, max_length=1800).to(model.device)
         prompt_token_length = inputs.input_ids.shape[1]
+        
         with torch.no_grad():
-            outputs = llm.generate(
-                **inputs, max_new_tokens=500, temperature=0.7, top_p=0.9,
-                do_sample=True, pad_token_id=tokenizer.eos_token_id
+            outputs = model.generate(
+                {"input_ids": inputs},
+                max_new_tokens=500,
+                temperature=0.7,
+                top_p=0.9,
+                do_sample=True,
+                pad_token_id=tokenizer.eos_token_id
             )
+        
         response_tokens = outputs[0][prompt_token_length:]
-        response = tokenizer.decode(response_tokens, skip_special_tokens=True)
-        print(f"  CHATBOT: Answer generated.")
-        return response.strip()
+        return tokenizer.decode(response_tokens, skip_special_tokens=True).strip()
     except Exception as e:
-        print(f"  CHATBOT Error during LLM generation: {e}")
+        print(f"Error during generation: {e}")
         return "Error generating response."
 
 def process_chat_message(
     user_input: str,
     user_id: str,
-    llm,
-    tokenizer,
-    embedding_model,
-    vector_index_name: str
+    models,
+    vector_index_name,
+    use_gpt4: bool = True
 ) -> str:
     start_time = time.time()
-
-    intent_data = interpret_intent(user_input, llm, tokenizer)
+    
+    # Get chat history - get last 5 interactions (10 messages total)
+    chat_history = db.get_chat_history(user_id, limit=5)
+    
+    # Get user data for knowledge profile
+    user_data = db.get_user_by_username(user_id)
+    if not user_data:
+        print(f"Warning: Could not find user data for {user_id}")
+        user_data = {"knowledge_profile": {}, "learning_goals": []}
+    
+    # Interpret intent
+    intent_data = interpret_intent(user_input, models["nlu"], models["tok_nlu"], use_gpt4=False)
     intent = intent_data.get("intent", "OTHER")
     topic = intent_data.get("topic")
     standardized_topic = topic.lower().replace(" ", "_") if topic else None
+    use_gpt4 = True
+    query = topic or user_input
+    context = retrieve_context(query, models["emb"], vector_index_name)
 
-    bot_answer = ""
-    action_taken = False
-    if intent == "ASK_QUESTION":
-        print("  CHATBOT: Handling ASK_QUESTION intent.")
-        query = topic or user_input
-        print("Query: " + query)
-        context = retrieve_context(query, embedding_model, vector_index_name)
-        prompt = format_rag_prompt(query, context)
-        bot_answer = generate_llm_answer(prompt, llm, tokenizer)
-        action_taken = True
-    elif intent == "REQUEST_QUIZ":
-        # Placeholder for quiz logic
-        print("  CHATBOT: Handling REQUEST_QUIZ intent.")
-        if topic:
-            bot_answer = f"Okay, let's start a quiz on {topic}! (Quiz logic not implemented yet)."
-            action_taken = True
-            standardized_topic = None # Don't update profile just for starting
+    # Generate response based on intent
+    if intent == "GET_INFORMATION":
+        if use_gpt4:
+            prompt = prompts.create_get_information_prompt(user_input, context, chat_history)
         else:
-            bot_answer = "Which topic would you like to be quizzed on?"
-            action_taken = True
-    # Add elif for SUMMARIZE_TOPIC, etc.
-    else: # OTHER / Fallback
-        print("  CHATBOT: Handling OTHER/Fallback intent.")
-        context = retrieve_context(user_input, embedding_model, vector_index_name)
-        prompt = format_rag_prompt(user_input, context)
-        bot_answer = generate_llm_answer(prompt, llm, tokenizer)
-        action_taken = True
-        standardized_topic = None # Don't assume topic learned
-
-    if action_taken and standardized_topic and intent == "ASK_QUESTION":
-        print(f"  CHATBOT: Updating knowledge profile for user {user_id}, topic '{standardized_topic}'")
+            prompt = prompts.create_get_information_prompt_tinyl(user_input, context, chat_history)
+        bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], use_gpt4)
+        
+        if standardized_topic:
+            try:
+                db.update_user_knowledge(user_id, standardized_topic, mastery_level="Seen")
+            except Exception as e:
+                print(f"Error updating knowledge profile: {e}")
+                
+    elif intent == "MANAGE_KNOWLEDGE":
+        if not topic:
+            bot_answer = "I need to know which topic you'd like to manage. Please specify a topic."
+        else:
+            prompt = prompts.create_manage_knowledge_prompt(topic, context, user_data, chat_history)
+            bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], True)
+            
+            # After generating a question, update the knowledge profile
+            try:
+                db.update_user_knowledge(user_id, standardized_topic, mastery_level="Practiced")
+            except Exception as e:
+                print(f"Error updating knowledge profile: {e}")
+                
+    elif intent == "REQUEST_REVIEW":
+        # For review, we need to determine which topic to review
+        if not topic:
+            # If no specific topic, find the topic with lowest mastery
+            knowledge_profile = user_data.get("knowledge_profile", {})
+            if knowledge_profile:
+                # Find topic with lowest mastery level
+                topic_to_review = min(
+                    knowledge_profile.items(),
+                    key=lambda x: {
+                        "Seen": 0,
+                        "Practiced": 1,
+                        "Assessed-Low": 2,
+                        "Assessed-High": 3,
+                        "Proficient": 4
+                    }.get(x[1].get("mastery", "Seen"), 0)
+                )[0]
+                topic = topic_to_review.replace("_", " ")
+            else:
+                bot_answer = "I don't have any topics to review yet. Try learning about a topic first!"
+                return bot_answer
+        
+        # Get context for the review topic
+        review_context = retrieve_context(topic, models["emb"], vector_index_name)
+        prompt = prompts.create_request_review_prompt(topic, review_context, user_data, chat_history)
+        bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], True)
+        
+        # Update the knowledge profile after review
         try:
-            # Ensure crud.update_user_knowledge is accessible
-            db.update_user_knowledge(user_id, standardized_topic, mastery_level="Seen")
+            db.update_user_knowledge(user_id, standardized_topic, mastery_level="Assessed-Low")
         except Exception as e:
-            print(f"  CHATBOT Error updating knowledge profile: {e}") # Log error
+            print(f"Error updating knowledge profile: {e}")
+            
+    else:
+        prompt = prompts.create_other_prompt(user_input, chat_history, user_data)
+        bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], True)
 
-    end_time = time.time()
-    print(f"Chat request processed in {end_time - start_time:.2f} seconds.")
+    # Save the interaction to chat history
+    try:
+        db.save_chat_history(user_id, user_input, bot_answer)
+    except Exception as e:
+        print(f"Error saving chat history: {e}")
+
+    print(f"Chat request processed in {time.time() - start_time:.2f} seconds.")
     return bot_answer

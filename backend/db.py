@@ -11,6 +11,7 @@ try:
     client = MongoClient(config.MONGO_CONNECTION_STRING)
     db = client[config.DB_NAME]
     users_collection = db[config.USER_COLLECTION]
+    docs_collection = db[config.DOCS_COLLECTION]
     users_collection.create_index("username", unique=True)
     print("CRUD: MongoDB connection established and user index ensured.")
 except Exception as e:
@@ -87,3 +88,69 @@ def update_user_knowledge(user_id: str, concept: str, mastery_level = None, conf
     else:
         print(f"No updates provided for user '{user_id}', concept '{concept}'.")
         return None
+
+def save_chat_history(user_id: str, prompt: str, answer: str):
+    """Saves a chat interaction to the user's history."""
+    if not user_id or not prompt or not answer:
+        print("Error: user_id, prompt, and answer are required for save_chat_history.")
+        return None
+
+    try:
+        obj_user_id = ObjectId(user_id)
+    except Exception as e:
+        print(f"Error: Invalid user_id format '{user_id}': {e}")
+        return None
+
+    chat_entry = {
+        "timestamp": datetime.datetime.now(datetime.timezone.utc),
+        "prompt": prompt,
+        "answer": answer
+    }
+
+    try:
+        # Use $push to add to the chat_history array, limiting to last 10 entries
+        result = users_collection.update_one(
+            {"_id": obj_user_id},
+            {
+                "$push": {
+                    "chat_history": {
+                        "$each": [chat_entry],
+                        "$slice": -10  # Keep only the last 10 entries
+                    }
+                }
+            }
+        )
+        if result.matched_count == 0:
+            print(f"Warning: No user found with _id '{user_id}' to save chat history.")
+            return None
+        return result
+    except Exception as e:
+        print(f"Error saving chat history for user '{user_id}': {e}")
+        return None
+
+def get_chat_history(user_id: str, limit: int = 1) -> list:
+    """Retrieves the most recent chat history entries for a user."""
+    if not user_id:
+        print("Error: user_id is required for get_chat_history.")
+        return []
+
+    try:
+        obj_user_id = ObjectId(user_id)
+    except Exception as e:
+        print(f"Error: Invalid user_id format '{user_id}': {e}")
+        return []
+
+    try:
+        # Project only the chat_history field and sort by timestamp
+        user = users_collection.find_one(
+            {"_id": obj_user_id},
+            {"chat_history": {"$slice": -limit}}  # Get the last 'limit' entries
+        )
+        
+        if not user or "chat_history" not in user:
+            return []
+            
+        return user["chat_history"]
+    except Exception as e:
+        print(f"Error retrieving chat history for user '{user_id}': {e}")
+        return []
