@@ -40,10 +40,10 @@ def interpret_intent(user_input: str, nlu_model, nlu_tokenizer, use_gpt4: bool =
 def interpret_intent_flan(user_input: str, nlu_model, nlu_tokenizer) -> dict:
     PREFIX = "Classify intent and extract topic: "
     prompt = f"{PREFIX}{user_input}"
-    print(f"  NLU Prompt: {prompt}") # Good to see the prompt
+    print(f"  NLU Prompt: {prompt}")
 
     try:
-        inputs = nlu_tokenizer(prompt, return_tensors="pt", max_length=128, truncation=True).to(nlu_model.device) # Shortened max_length slightly
+        inputs = nlu_tokenizer(prompt, return_tensors="pt", max_length=128, truncation=True).to(nlu_model.device)
 
         with torch.no_grad():
             outputs = nlu_model.generate(
@@ -52,16 +52,16 @@ def interpret_intent_flan(user_input: str, nlu_model, nlu_tokenizer) -> dict:
                 temperature=0.1, 
                 do_sample=False
             )
-        result_text = nlu_tokenizer.decode(outputs[0], skip_special_tokens=True).strip() # Use strip()
-        print(f"  CHATBOT NLU Raw Output (FLAN-T5): '{result_text}'") # Log raw output
+        result_text = nlu_tokenizer.decode(outputs[0], skip_special_tokens=True).strip()
+        print(f"  CHATBOT NLU Raw Output (FLAN-T5): '{result_text}'")
 
         if ':' in result_text and '"' in result_text:
             json_string_to_parse = "{" + result_text + "}"
             print(f"  CHATBOT NLU Attempting to parse: '{json_string_to_parse}'")
             try:
                 parsed = json.loads(json_string_to_parse)
-                intent = parsed.get("intent", "OTHER") # Default to OTHER if key missing
-                topic = parsed.get("topic") # Get topic (can be null)
+                intent = parsed.get("intent", "OTHER")
+                topic = parsed.get("topic")
 
                 valid_intents = ["GET_INFORMATION", "MANAGE_KNOWLEDGE", "REQUEST_REVIEW", "OTHER"]
                 if intent not in valid_intents:
@@ -74,7 +74,6 @@ def interpret_intent_flan(user_input: str, nlu_model, nlu_tokenizer) -> dict:
             except json.JSONDecodeError as json_err:
                 print(f"  CHATBOT NLU Error: JSONDecodeError after adding braces: {json_err}")
                 print(f"  String that failed parsing: '{json_string_to_parse}'")
-                # Fallback if parsing still fails (e.g., malformed content)
                 return {"intent": "OTHER", "topic": None}
         else:
             print("  CHATBOT NLU Warning: Output doesn't look like key-value pairs. Defaulting to OTHER.")
@@ -82,7 +81,7 @@ def interpret_intent_flan(user_input: str, nlu_model, nlu_tokenizer) -> dict:
 
     except Exception as e:
         print(f"  CHATBOT NLU Error during generation or processing: {e}")
-        return {"intent": "ERROR", "topic": None} # Indicate a system error
+        return {"intent": "ERROR", "topic": None}
 
 def retrieve_context(query_text: str, embedding_model, index_name: str, k: int = 3) -> str:
     if not query_text:
@@ -101,6 +100,7 @@ def retrieve_context(query_text: str, embedding_model, index_name: str, k: int =
         ]
         results = list(db.docs_collection.aggregate(pipeline))
         context = "\n---\n".join([f"Context: {res['text_chunk']} (Score: {res['score']:.4f})" for res in results])
+        print("Context found in RAG DB: ", len(results))
         return context if context else "No relevant context found in the database."
     except Exception as e:
         print(f"Error during RAG retrieval: {e}")
@@ -123,24 +123,41 @@ def generate_response(prompt, model, tokenizer, use_gpt4=True) -> str:
                 print(f"Error during GPT-4 generation: {e}")
                 return "Error generating response from GPT-4."
         
-        inputs = tokenizer(prompt, return_tensors="pt", padding=False, truncation=True, max_length=1800).to(model.device)
-        prompt_token_length = inputs.input_ids.shape[1]
-        
-        with torch.no_grad():
-            outputs = model.generate(
-                {"input_ids": inputs},
-                max_new_tokens=500,
-                temperature=0.7,
-                top_p=0.9,
-                do_sample=True,
-                pad_token_id=tokenizer.eos_token_id
-            )
-        
-        response_tokens = outputs[0][prompt_token_length:]
-        return tokenizer.decode(response_tokens, skip_special_tokens=True).strip()
+        else:
+            print("  GENERATOR: Using local TinyLlama model")
+            if model is None or tokenizer is None:
+                 print("Error: Local model or tokenizer not provided for generation.")
+                 return "Error: Local model not available."
+
+            try:
+                inputs = tokenizer(prompt, return_tensors="pt", padding=False, truncation=True, max_length=1800).to(model.device)
+                prompt_token_length = inputs.input_ids.shape[1]
+
+                with torch.no_grad():
+                    outputs = model.generate(
+                        **inputs,
+                        max_new_tokens=500,      
+                        temperature=0.7,
+                        top_p=0.9,
+                        do_sample=True,
+                        pad_token_id=tokenizer.eos_token_id 
+                    )
+
+                response_tokens = outputs[0][prompt_token_length:]
+                response = tokenizer.decode(response_tokens, skip_special_tokens=True)
+                return response.strip()
+
+            except Exception as e:
+                import traceback
+                print(f"Error during local LLM generation: {e}")
+                traceback.print_exc() 
+                return "Error generating response from local model."
+
     except Exception as e:
-        print(f"Error during generation: {e}")
-        return "Error generating response."
+        import traceback
+        print(f"Unexpected error in generate_response function: {e}")
+        traceback.print_exc()
+        return "An unexpected error occurred during generation."
 
 def process_chat_message(
     user_input: str,
@@ -151,16 +168,15 @@ def process_chat_message(
 ) -> str:
     start_time = time.time()
     
-    # Get chat history - get last 5 interactions (10 messages total)
     chat_history = db.get_chat_history(user_id, limit=5)
     
-    # Get user data for knowledge profile
-    user_data = db.get_user_by_username(user_id)
+    user_data = db.get_user_by_id(user_id)
     if not user_data:
-        print(f"Warning: Could not find user data for {user_id}")
+        print(f"Warning: Could not find user data for ID {user_id}")
         user_data = {"knowledge_profile": {}, "learning_goals": []}
+    else:
+        print(f"Found user data for ID {user_id}: {user_data.get('knowledge_profile', {})}")
     
-    # Interpret intent
     intent_data = interpret_intent(user_input, models["nlu"], models["tok_nlu"], use_gpt4=False)
     intent = intent_data.get("intent", "OTHER")
     topic = intent_data.get("topic")
@@ -169,7 +185,6 @@ def process_chat_message(
     query = topic or user_input
     context = retrieve_context(query, models["emb"], vector_index_name)
 
-    # Generate response based on intent
     if intent == "GET_INFORMATION":
         if use_gpt4:
             prompt = prompts.create_get_information_prompt(user_input, context, chat_history)
@@ -179,7 +194,11 @@ def process_chat_message(
         
         if standardized_topic:
             try:
-                db.update_user_knowledge(user_id, standardized_topic, mastery_level="Seen")
+                db.update_user_knowledge(
+                    user_id=user_id,
+                    concept=standardized_topic,
+                    mastery_level="Seen"
+                )
             except Exception as e:
                 print(f"Error updating knowledge profile: {e}")
                 
@@ -190,19 +209,20 @@ def process_chat_message(
             prompt = prompts.create_manage_knowledge_prompt(topic, context, user_data, chat_history)
             bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], True)
             
-            # After generating a question, update the knowledge profile
             try:
-                db.update_user_knowledge(user_id, standardized_topic, mastery_level="Practiced")
+                db.update_user_knowledge(
+                    user_id=user_id,
+                    concept=standardized_topic,
+                    mastery_level="Practiced"
+                )
             except Exception as e:
                 print(f"Error updating knowledge profile: {e}")
                 
     elif intent == "REQUEST_REVIEW":
-        # For review, we need to determine which topic to review
         if not topic:
-            # If no specific topic, find the topic with lowest mastery
+            print("User data for review:", user_data.get('knowledge_profile', {}))
             knowledge_profile = user_data.get("knowledge_profile", {})
             if knowledge_profile:
-                # Find topic with lowest mastery level
                 topic_to_review = min(
                     knowledge_profile.items(),
                     key=lambda x: {
@@ -214,18 +234,21 @@ def process_chat_message(
                     }.get(x[1].get("mastery", "Seen"), 0)
                 )[0]
                 topic = topic_to_review.replace("_", " ")
+                standardized_topic = topic.lower().replace(" ", "_") if topic else None
             else:
                 bot_answer = "I don't have any topics to review yet. Try learning about a topic first!"
                 return bot_answer
         
-        # Get context for the review topic
         review_context = retrieve_context(topic, models["emb"], vector_index_name)
         prompt = prompts.create_request_review_prompt(topic, review_context, user_data, chat_history)
         bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], True)
         
-        # Update the knowledge profile after review
         try:
-            db.update_user_knowledge(user_id, standardized_topic, mastery_level="Assessed-Low")
+            db.update_user_knowledge(
+                user_id=user_id,
+                concept=standardized_topic,
+                mastery_level="Assessed-Low"
+            )
         except Exception as e:
             print(f"Error updating knowledge profile: {e}")
             
@@ -233,7 +256,6 @@ def process_chat_message(
         prompt = prompts.create_other_prompt(user_input, chat_history, user_data)
         bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], True)
 
-    # Save the interaction to chat history
     try:
         db.save_chat_history(user_id, user_input, bot_answer)
     except Exception as e:

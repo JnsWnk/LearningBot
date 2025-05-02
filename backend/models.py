@@ -69,14 +69,13 @@ def load_all_models(emb=True, tiny=True, flan=True):
     if(flan):
         try:
             print(f"CORE: Loading NLU model: {NLU_MODEL_ID}...")
-            # Load on CPU by default to save VRAM, can change to 'cuda' if preferred/available
-            nlu_device = 'cuda' if torch.cuda.is_available() else 'cpu' # Or force 'cpu'
-            print(f"CORE: Attempting to load NLU model from: {NLU_MODEL_ID}") # Add this
+            nlu_device = 'cuda' if torch.cuda.is_available() else 'cpu'
+            print(f"CORE: Attempting to load NLU model from: {NLU_MODEL_ID}")
             nlu_tokenizer = AutoTokenizer.from_pretrained(NLU_MODEL_ID)
             nlu_model = AutoModelForSeq2SeqLM.from_pretrained(NLU_MODEL_ID).to(nlu_device)
-            print(f"CORE: Successfully loaded NLU model class: {type(nlu_model)}") # Add this
+            print(f"CORE: Successfully loaded NLU model class: {type(nlu_model)}")
         
-            nlu_model.eval() # Set to evaluation mode
+            nlu_model.eval()
 
             models["nlu"] = nlu_model
             models["tok_nlu"] = nlu_tokenizer

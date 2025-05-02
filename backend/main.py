@@ -1,5 +1,5 @@
 from datetime import timedelta
-from fastapi import FastAPI, Depends, HTTPException, status, Request # Added Request
+from fastapi import FastAPI, Depends, HTTPException, status, Request
 from fastapi.security import OAuth2PasswordRequestForm
 from contextlib import asynccontextmanager
 
@@ -16,12 +16,11 @@ import config
 async def lifespan(app: FastAPI):
     print("Application startup: Loading models...")
     loaded_models = models.load_all_models()
-    app.state.ml_models = loaded_models # Store in app state
+    app.state.ml_models = loaded_models
     app.state.user_collection = db.users_collection 
     if not hasattr(db, 'client') or db.client is None:
          print("MAIN: FATAL ERROR - MongoDB connection not established in crud module.")
     yield
-    # Cleanup on shutdown
     print("MAIN: Application shutdown.")
     if hasattr(app.state, 'ml_models'):
         app.state.ml_models.clear()
@@ -57,7 +56,7 @@ async def read_users_me(current_user: dict = Depends(security.get_current_user))
 
 @app.post("/chat", response_model=schemas.ChatResponse)
 async def chat_endpoint(
-    request: Request, # Inject request to access app.state
+    request: Request,
     message: schemas.ChatMessage,
     current_user: schemas.UserPublic = Depends(security.get_current_user)
 ):
@@ -66,13 +65,11 @@ async def chat_endpoint(
 
     ml_models = request.app.state.ml_models
 
-    # Check if models are ready
     if "load_error" in ml_models:
          raise HTTPException(status_code=503, detail=f"ML Models failed to load: {ml_models['load_error']}")
     if len(ml_models) == 0:
          raise HTTPException(status_code=503, detail="ML Models not available.")
 
-    # Delegate processing to the chatbot module function
     bot_answer = chatbot.process_chat_message(
         user_input=user_input,
         user_id=user_id,

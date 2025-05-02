@@ -9,19 +9,16 @@ def format_chat_history(chat_history: List[Dict[str, Any]], max_turns: int = 2) 
     Always returns at most the last 2 user-assistant interactions (4 messages total).
     """
     formatted_history = []
-    # Iterate backwards and grab pairs
     num_pairs = 0
     for i in range(len(chat_history) - 1, -1, -1):
-        if num_pairs >= max_turns:  # Stop after getting 2 pairs (4 messages)
+        if num_pairs >= max_turns:
             break
             
         entry = chat_history[i]
-        # Add assistant's answer first (since we're going backwards)
         formatted_history.insert(0, {
             "role": "assistant",
             "content": entry["answer"]
         })
-        # Add user's prompt
         formatted_history.insert(0, {
             "role": "user",
             "content": entry["prompt"]
@@ -40,7 +37,6 @@ def create_get_information_prompt_tinyl(
 ) -> str:
     formatted_history = format_chat_history(chat_history, max_turns=1)
     
-    # Convert history to string format
     history_str = ""
     if formatted_history:
         history_str = "Chat History (Recent):\n"
@@ -82,16 +78,10 @@ If the user asks a follow-up question (like "tell me more", "why?", "explain tha
 If the context does not contain the answer, state that you cannot answer from the provided information.
 If the user asks for a summary, provide a concise summary based *only* on the context."""
 
-    # Get last 2 interactions (4 messages total)
     formatted_history = format_chat_history(chat_history, max_turns=2)
-    
-    # Build messages list starting with system prompt
     messages = [{"role": "system", "content": system_prompt}]
-    
-    # Add chat history messages
     messages.extend(formatted_history)
     
-    # Add the final user message with context
     user_prompt = f"""Retrieved Context:
 ---
 {rag_context}
@@ -115,13 +105,11 @@ def create_manage_knowledge_prompt(
     Creates a prompt for generating a knowledge assessment question.
     Uses only the last 2 user-assistant interactions for context.
     """
-    # Extract mastery level for the topic, default to 'Beginner' if not found
-    knowledge_level = "Beginner"  # Default
+    knowledge_level = "Beginner"
     if topic:
         topic_key = topic.lower().replace(" ", "_")
         if user_data.get("knowledge_profile", {}).get(topic_key):
             mastery = user_data["knowledge_profile"][topic_key].get("mastery")
-            # Map mastery levels to difficulty
             if mastery in ["Practiced", "Assessed-Low"]:
                 knowledge_level = "Intermediate"
             elif mastery in ["Assessed-High", "Proficient"]:
@@ -134,9 +122,7 @@ The question should test understanding, not just memorization.
 Use the chat history to understand the context of the student's learning journey.
 Output *only* the question text, ready to present to the student."""
 
-    # Get last 2 interactions (4 messages total)
     formatted_history = format_chat_history(chat_history, max_turns=2)
-    
     messages = [{"role": "system", "content": system_prompt}]
     messages.extend(formatted_history)
     
@@ -163,7 +149,6 @@ def create_request_review_prompt(
     Creates a prompt for generating a review question.
     Uses only the last 2 user-assistant interactions for context.
     """
-    # Get current mastery level
     topic_key = review_topic.lower().replace(" ", "_")
     current_mastery = user_data.get("knowledge_profile", {}).get(topic_key, {}).get("mastery", "Seen")
     
@@ -174,9 +159,7 @@ The question should be based *only* on the provided context.
 Use the chat history to understand what aspects of the topic the student has been working on.
 Output *only* the question text, ready to present to the student."""
 
-    # Get last 2 interactions (4 messages total)
     formatted_history = format_chat_history(chat_history, max_turns=2)
-    
     messages = [{"role": "system", "content": system_prompt}]
     messages.extend(formatted_history)
     
@@ -204,7 +187,6 @@ def create_other_prompt(
     Uses only the last 2 user-assistant interactions for context.
     Includes user data and knowledge profile for personalized responses.
     """
-    # Get user's knowledge profile summary
     knowledge_profile = user_data.get("knowledge_profile", {})
     topics_learned = list(knowledge_profile.keys())
     topics_str = ", ".join([t.replace("_", " ") for t in topics_learned]) if topics_learned else "none yet"
@@ -221,9 +203,7 @@ If the user input is unclear or asks for something outside the scope of CS/DS/AI
 Use the chat history to maintain conversation context and provide more personalized responses.
 When appropriate, reference the user's learning progress and topics they've covered."""
 
-    # Get last 2 interactions (4 messages total)
     formatted_history = format_chat_history(chat_history, max_turns=2)
-    
     messages = [{"role": "system", "content": system_prompt}]
     messages.extend(formatted_history)
     messages.append({"role": "user", "content": user_message})

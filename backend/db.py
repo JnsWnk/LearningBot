@@ -17,13 +17,13 @@ try:
 except Exception as e:
     print(f"CRUD: Error connecting to MongoDB: {e}")
 
-def get_user_by_username(username: str): # -> Optional[schemas.UserInDBBase]
+def get_user_by_username(username: str):
     user_doc = users_collection.find_one({"username": username})
     if user_doc:
         user_doc['_id'] = str(user_doc['_id'])
     return user_doc 
 
-def create_user(user: schemas.UserCreate): # -> Optional[dict]
+def create_user(user: schemas.UserCreate):
     hashed_password = security.get_password_hash(user.password)
     user_doc = {
         "username": user.username,
@@ -51,7 +51,6 @@ def update_user_knowledge(user_id: str, concept: str, mastery_level = None, conf
         return None
 
     try:
-        # Convert user_id string back to ObjectId for querying
         obj_user_id = ObjectId(user_id)
     except Exception as e:
         print(f"Error: Invalid user_id format '{user_id}': {e}")
@@ -61,7 +60,6 @@ def update_user_knowledge(user_id: str, concept: str, mastery_level = None, conf
     update_fields = {}
     changes_made = False
 
-    # Prepare fields to update using dot notation
     if mastery_level is not None:
         update_fields[f"knowledge_profile.{concept}.mastery"] = mastery_level
         changes_made = True
@@ -69,9 +67,7 @@ def update_user_knowledge(user_id: str, concept: str, mastery_level = None, conf
         update_fields[f"knowledge_profile.{concept}.confidence"] = confidence
         changes_made = True
 
-    # Only update if there are actual changes requested
     if changes_made:
-        # Always update the last_reviewed timestamp when updating mastery/confidence
         update_fields[f"knowledge_profile.{concept}.last_reviewed"] = datetime.datetime.now(datetime.timezone.utc)
         update_operation = {"$set": update_fields}
 
@@ -81,7 +77,7 @@ def update_user_knowledge(user_id: str, concept: str, mastery_level = None, conf
                 print(f"Warning: No user found with _id '{user_id}' to update knowledge.")
                 return None
             print(f"Updated knowledge for user '{user_id}', concept '{concept}'. Matched: {result.matched_count}, Modified: {result.modified_count}")
-            return result # Returns UpdateResult object
+            return result
         except Exception as e:
             print(f"Error updating user knowledge in DB for user '{user_id}', concept '{concept}': {e}")
             return None
@@ -108,14 +104,13 @@ def save_chat_history(user_id: str, prompt: str, answer: str):
     }
 
     try:
-        # Use $push to add to the chat_history array, limiting to last 10 entries
         result = users_collection.update_one(
             {"_id": obj_user_id},
             {
                 "$push": {
                     "chat_history": {
                         "$each": [chat_entry],
-                        "$slice": -10  # Keep only the last 10 entries
+                        "$slice": -10
                     }
                 }
             }
@@ -141,10 +136,9 @@ def get_chat_history(user_id: str, limit: int = 1) -> list:
         return []
 
     try:
-        # Project only the chat_history field and sort by timestamp
         user = users_collection.find_one(
             {"_id": obj_user_id},
-            {"chat_history": {"$slice": -limit}}  # Get the last 'limit' entries
+            {"chat_history": {"$slice": -limit}}
         )
         
         if not user or "chat_history" not in user:
@@ -154,3 +148,19 @@ def get_chat_history(user_id: str, limit: int = 1) -> list:
     except Exception as e:
         print(f"Error retrieving chat history for user '{user_id}': {e}")
         return []
+
+def get_user_by_id(user_id: str):
+    """Retrieves a user by their ID."""
+    if not user_id:
+        print("Error: user_id is required for get_user_by_id.")
+        return None
+
+    try:
+        obj_user_id = ObjectId(user_id)
+        user_doc = users_collection.find_one({"_id": obj_user_id})
+        if user_doc:
+            user_doc['_id'] = str(user_doc['_id'])
+        return user_doc
+    except Exception as e:
+        print(f"Error retrieving user by ID '{user_id}': {e}")
+        return None
