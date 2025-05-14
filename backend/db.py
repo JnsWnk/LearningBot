@@ -45,7 +45,8 @@ def create_user(user: schemas.UserCreate):
         print(f"Error creating user: {e}")
         return None
     
-def update_user_knowledge(user_id: str, concept: str, mastery_level = None, confidence = None):
+def update_user_knowledge(user_id: str, concept: str, new_level: int = None):
+    """Update or create a knowledge profile entry for a concept."""
     if not user_id or not concept:
         print("Error: user_id and concept are required for update_user_knowledge.")
         return None
@@ -56,33 +57,68 @@ def update_user_knowledge(user_id: str, concept: str, mastery_level = None, conf
         print(f"Error: Invalid user_id format '{user_id}': {e}")
         return None
 
-    update_filter = {"_id": obj_user_id}
-    update_fields = {}
-    changes_made = False
+    current_time = datetime.datetime.now(datetime.timezone.utc)
+    
+    # Get current knowledge profile
+    user = users_collection.find_one({"_id": obj_user_id})
+    if not user:
+        print(f"Warning: No user found with _id '{user_id}'")
+        return None
 
-    if mastery_level is not None:
-        update_fields[f"knowledge_profile.{concept}.mastery"] = mastery_level
-        changes_made = True
-    if confidence is not None:
-        update_fields[f"knowledge_profile.{concept}.confidence"] = confidence
-        changes_made = True
+    # Get current level or default to 1 if not exists
+    current_level = user.get("knowledge_profile", {}).get(concept, {}).get("level", 1)
+    
+    # Update level if provided
+    if new_level is not None:
+        # Ensure level stays within 0-5 range
+        current_level = max(0, min(5, new_level))
 
-    if changes_made:
-        update_fields[f"knowledge_profile.{concept}.last_reviewed"] = datetime.datetime.now(datetime.timezone.utc)
-        update_operation = {"$set": update_fields}
+    # Update the knowledge profile
+    update_operation = {
+        "$set": {
+            f"knowledge_profile.{concept}": {
+                "level": current_level,
+                "last_updated": current_time
+            }
+        }
+    }
 
-        try:
-            result = users_collection.update_one(update_filter, update_operation)
-            if result.matched_count == 0:
-                print(f"Warning: No user found with _id '{user_id}' to update knowledge.")
-                return None
-            print(f"Updated knowledge for user '{user_id}', concept '{concept}'. Matched: {result.matched_count}, Modified: {result.modified_count}")
-            return result
-        except Exception as e:
-            print(f"Error updating user knowledge in DB for user '{user_id}', concept '{concept}': {e}")
+    try:
+        result = users_collection.update_one(
+            {"_id": obj_user_id},
+            update_operation
+        )
+        if result.matched_count == 0:
+            print(f"Warning: No user found with _id '{user_id}' to update knowledge.")
             return None
-    else:
-        print(f"No updates provided for user '{user_id}', concept '{concept}'.")
+        print(f"Updated knowledge for user '{user_id}', concept '{concept}'. Level: {current_level}")
+        return result
+    except Exception as e:
+        print(f"Error updating user knowledge in DB for user '{user_id}', concept '{concept}': {e}")
+        return None
+
+def get_topic_to_review(user_id: str) -> str:
+    """Get the topic that needs review based on oldest update date."""
+    try:
+        obj_user_id = ObjectId(user_id)
+    except Exception as e:
+        print(f"Error: Invalid user_id format '{user_id}': {e}")
+        return None
+
+    try:
+        user = users_collection.find_one({"_id": obj_user_id})
+        if not user or not user.get("knowledge_profile"):
+            return None
+
+        # Find topic with oldest last_updated date
+        oldest_topic = min(
+            user["knowledge_profile"].items(),
+            key=lambda x: x[1].get("last_updated", datetime.datetime.min.replace(tzinfo=datetime.timezone.utc))
+        )[0]
+
+        return oldest_topic
+    except Exception as e:
+        print(f"Error getting topic to review for user '{user_id}': {e}")
         return None
 
 def save_chat_history(user_id: str, prompt: str, answer: str):

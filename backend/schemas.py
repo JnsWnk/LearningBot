@@ -31,6 +31,38 @@ class TokenData(BaseModel):
 
 class ChatMessage(BaseModel):
     user_input: str
+    use_gpt4: bool
 
 class ChatResponse(BaseModel):
     bot_response: str
+    is_quiz: bool = False
+    topic: str
+
+class QuizAnswer(BaseModel):
+    answer: str
+    message_id: str
+    question: str
+    topic: str
+
+class QuizEvaluation(BaseModel):
+    score: int
+    sample_solution: str
+    evaluation: str
+
+class QuizResponse(BaseModel):
+    bot_response: str
+    evaluation: QuizEvaluation
+
+class KnowledgeProfile(BaseModel):
+    knowledge_profile: Dict[str, Dict[str, Any]]
+
+class TopicStatistics(BaseModel):
+    total_users: int
+    average_level: float
+    percentage_of_users: float
+    level_distribution: Dict[int, float]
+
+class StatisticsResponse(BaseModel):
+    topic_statistics: Dict[str, TopicStatistics]
+    overall_level_distribution: Dict[int, float]
+    total_users: int

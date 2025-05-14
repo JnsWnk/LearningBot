@@ -118,7 +118,7 @@ def create_manage_knowledge_prompt(
     system_prompt = f"""You are an AI quiz creator for Computer Science, Data Science, and AI topics.
 Your task is to generate ONE relevant, clear question based *only* on the provided context text.
 The question should be suitable for a student whose current understanding of '{topic}' is estimated as '{knowledge_level}'.
-The question should test understanding, not just memorization.
+The question should test understanding and memorization, but also not too hard or too long.
 Use the chat history to understand the context of the student's learning journey.
 Output *only* the question text, ready to present to the student."""
 
@@ -154,8 +154,8 @@ def create_request_review_prompt(
     
     system_prompt = f"""You are an AI tutor creating a review question for a student.
 The student's current mastery level for '{review_topic}' is '{current_mastery}'.
-Generate ONE challenging but fair question that will help reinforce their understanding.
-The question should be based *only* on the provided context.
+Generate ONE fair question that will help reinforce their understanding.
+The question should be based mostly on the provided context.
 Use the chat history to understand what aspects of the topic the student has been working on.
 Output *only* the question text, ready to present to the student."""
 
@@ -169,7 +169,7 @@ Output *only* the question text, ready to present to the student."""
 </context>
 
 Generate one review question that will help reinforce the student's understanding of '{review_topic}'.
-The question should be challenging but appropriate for their current mastery level of '{current_mastery}'.
+The question should be appropriate for their current mastery level of '{current_mastery}'.
 Base the question *only* on the provided context.
 Consider the student's recent learning context from the chat history."""
 
@@ -241,3 +241,42 @@ Do not include ```json``` markers, explanations, apologies, or any text outside 
         messages.extend([user_msg, assistant_msg])
     messages.append({"role": "user", "content": user_input})
     return messages
+
+def create_quiz_evaluation_prompt(question: str, user_answer: str, topic: str) -> list:
+    """Create a prompt for evaluating a quiz answer and generating a sample solution."""
+    return [
+        {
+            "role": "system",
+            "content": """You are an educational AI assistant evaluating a student's answer to a quiz question.
+            You can also talk to the student directly. 
+            Your task is to:
+            1. Evaluate the student's answer on a scale of 0-5
+            2. Provide a sample solution
+            3. Explain to the student directly not in third person why the student's answer received that score
+            
+            Consider:
+            - Accuracy of the answer
+            - Completeness of the explanation
+            - Understanding demonstrated
+            - Use of relevant concepts
+            - Clarity of expression
+
+            But dont grade the answer too harsh as well, it doesnt have to be perfect and they are still a student.
+            You can speak to the user directly instead of third person.
+
+            Return ONLY a VALID JSON OBJECT that can be parsed as is and is stuctured like shown below.
+            No need to return ```json or ```.
+            Format your response as a JSON object with the following structure:
+            {
+                "score": <number between 0 and 5>,
+                "sample_solution": "<detailed solution>",
+                "evaluation": "<explanation of the score>"
+            }"""
+        },
+        {
+            "role": "user",
+            "content": f"""Question: {question}
+            Student's Answer: {user_answer}
+            Please evaluate this answer, rate it and provide a sample solution."""
+        }
+    ] 

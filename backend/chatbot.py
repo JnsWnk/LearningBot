@@ -165,12 +165,12 @@ def process_chat_message(
     models,
     vector_index_name,
     use_gpt4: bool = True
-) -> str:
+) -> dict:
     start_time = time.time()
     
     chat_history = db.get_chat_history(user_id, limit=5)
-    
     user_data = db.get_user_by_id(user_id)
+
     if not user_data:
         print(f"Warning: Could not find user data for ID {user_id}")
         user_data = {"knowledge_profile": {}, "learning_goals": []}
@@ -181,9 +181,10 @@ def process_chat_message(
     intent = intent_data.get("intent", "OTHER")
     topic = intent_data.get("topic")
     standardized_topic = topic.lower().replace(" ", "_") if topic else None
-    use_gpt4 = True
     query = topic or user_input
     context = retrieve_context(query, models["emb"], vector_index_name)
+
+    is_quiz = False
 
     if intent == "GET_INFORMATION":
         if use_gpt4:
@@ -197,60 +198,29 @@ def process_chat_message(
                 db.update_user_knowledge(
                     user_id=user_id,
                     concept=standardized_topic,
-                    mastery_level="Seen"
                 )
             except Exception as e:
                 print(f"Error updating knowledge profile: {e}")
                 
     elif intent == "MANAGE_KNOWLEDGE":
         if not topic:
-            bot_answer = "I need to know which topic you'd like to manage. Please specify a topic."
+            bot_answer = "I need to know which topic you'd like to explore. Please specify a topic."
         else:
             prompt = prompts.create_manage_knowledge_prompt(topic, context, user_data, chat_history)
             bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], True)
-            
-            try:
-                db.update_user_knowledge(
-                    user_id=user_id,
-                    concept=standardized_topic,
-                    mastery_level="Practiced"
-                )
-            except Exception as e:
-                print(f"Error updating knowledge profile: {e}")
+            is_quiz = True
                 
     elif intent == "REQUEST_REVIEW":
         if not topic:
             print("User data for review:", user_data.get('knowledge_profile', {}))
-            knowledge_profile = user_data.get("knowledge_profile", {})
-            if knowledge_profile:
-                topic_to_review = min(
-                    knowledge_profile.items(),
-                    key=lambda x: {
-                        "Seen": 0,
-                        "Practiced": 1,
-                        "Assessed-Low": 2,
-                        "Assessed-High": 3,
-                        "Proficient": 4
-                    }.get(x[1].get("mastery", "Seen"), 0)
-                )[0]
-                topic = topic_to_review.replace("_", " ")
-                standardized_topic = topic.lower().replace(" ", "_") if topic else None
-            else:
+            topic = db.get_topic_to_review(user_id)
+            if not topic:
                 bot_answer = "I don't have any topics to review yet. Try learning about a topic first!"
-                return bot_answer
+                return {"bot_response": bot_answer, "is_quiz": False, "topic": None}
         
-        review_context = retrieve_context(topic, models["emb"], vector_index_name)
-        prompt = prompts.create_request_review_prompt(topic, review_context, user_data, chat_history)
+        prompt = prompts.create_request_review_prompt(topic, context, user_data, chat_history)
         bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], True)
-        
-        try:
-            db.update_user_knowledge(
-                user_id=user_id,
-                concept=standardized_topic,
-                mastery_level="Assessed-Low"
-            )
-        except Exception as e:
-            print(f"Error updating knowledge profile: {e}")
+        is_quiz = True
             
     else:
         prompt = prompts.create_other_prompt(user_input, chat_history, user_data)
@@ -262,4 +232,109 @@ def process_chat_message(
         print(f"Error saving chat history: {e}")
 
     print(f"Chat request processed in {time.time() - start_time:.2f} seconds.")
-    return bot_answer
+    return {"bot_response": bot_answer, "is_quiz": is_quiz, "topic": topic}
+
+def process_quiz(
+    question: str,
+    answer: str,
+    topic: str,
+    user_id: str,
+) -> dict:
+    """Process a quiz answer and provide evaluation."""
+    try:
+        print("Processing quiz answer. Topic: ", topic)
+        # Create evaluation prompt
+        evaluation_prompt = prompts.create_quiz_evaluation_prompt(question, answer, topic)
+        
+        # Get evaluation from GPT-4
+        evaluation_response = generate_response(evaluation_prompt, None, None, use_gpt4=True)
+        print("Eval response: ", evaluation_response)
+        
+        try:
+            # Handle potential markdown code block wrapping
+            json_str = evaluation_response
+            if "```json" in evaluation_response:
+                # Extract content between ```json and ```
+                json_str = evaluation_response.split("```json")[1].split("```")[0].strip()
+            elif "```" in evaluation_response:
+                # Extract content between ``` and ```
+                json_str = evaluation_response.split("```")[1].split("```")[0].strip()
+            
+            evaluation_data = json.loads(json_str)
+        except json.JSONDecodeError as e:
+            print(f"Error parsing evaluation response as JSON: {e}")
+            print(f"Attempted to parse: {json_str}")
+            return {
+                "bot_response": "I apologize, but I had trouble evaluating your answer. Please try again.",
+                "evaluation": {
+                    "score": 0,
+                    "sample_solution": "Unable to generate sample solution",
+                    "evaluation": "Error in evaluation process"
+                }
+            }
+        
+        standardized_topic = topic.lower().replace(" ", "_") if topic else None
+        
+        # Get current level from database
+        user_data = db.get_user_by_id(user_id)
+        current_level = 1  # Default level for new topics
+        if user_data and standardized_topic in user_data.get("knowledge_profile", {}):
+            current_level = user_data["knowledge_profile"][standardized_topic].get("level", 1)
+        
+        # Calculate new level based on answer score
+        score = evaluation_data.get("score", 0)
+        level_change = 0
+        if score == 5:
+            level_change = 2
+        elif score == 4:
+            level_change = 1
+        elif score in [1, 2]:
+            level_change = -1
+        elif score == 0:
+            level_change = -2
+        
+        new_level = max(0, min(5, current_level + level_change))
+        
+        # Update user knowledge
+        if standardized_topic:
+            try:
+                db.update_user_knowledge(
+                    user_id=user_id,
+                    concept=standardized_topic,
+                    new_level=new_level
+                )
+            except Exception as e:
+                print(f"Error updating knowledge profile: {e}")
+        
+        # Format the response
+        response_text = f"""Here's my evaluation of your answer:
+
+Score: {score}/5
+
+Evaluation:
+{evaluation_data['evaluation']}
+
+Sample Solution:
+{evaluation_data['sample_solution']}
+
+Your mastery level for this topic is now: {new_level}/5"""
+        
+        return {
+            "bot_response": response_text,
+            "evaluation": {
+                "score": score,
+                "sample_solution": evaluation_data["sample_solution"],
+                "evaluation": evaluation_data["evaluation"]
+            }
+        }
+        
+    except Exception as e:
+        print(f"Error in process_quiz: {e}")
+        return {
+            "bot_response": "I apologize, but I encountered an error while processing your answer. Please try again.",
+            "evaluation": {
+                "score": 0,
+                "sample_solution": "Unable to generate sample solution",
+                "evaluation": "Error in evaluation process"
+            }
+        }
