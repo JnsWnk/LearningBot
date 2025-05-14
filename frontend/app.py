@@ -137,7 +137,7 @@ def display_knowledge_profile():
         st.sidebar.progress(level / 5)
         st.sidebar.markdown(f"Level: {level}/5")
         if last_updated:
-            st.sidebar.markdown(f"Last updated: {last_updated}")
+            st.sidebar.markdown(f"Last updated: {format_date(last_updated)}")
         st.sidebar.markdown("---")
 
 def login_page():
@@ -189,6 +189,12 @@ def chat_page():
     # Display chat history
     for message in st.session_state.chat_history:
         with st.chat_message(message["role"]):
+            # Display topic and level if available
+            if message.get("topic"):
+                topic = message["topic"].replace("_", " ").title()
+                st.markdown(f"**Topic:** {topic}")
+            
+            # Display the message content
             st.write(message["content"])
             
             # If this is a quiz message, show the answer input and any evaluation
@@ -291,97 +297,36 @@ def statistics_page():
     if not stats:
         st.info("No statistics available yet.")
         return
-    
+    total = stats["total_users"]
     # Display total users
-    st.metric("Total Users", stats["total_users"])
+    st.metric("Total Users", total)
     
-    # Create tabs for different visualizations
-    tab1, tab2, tab3 = st.tabs(["Topic Popularity", "Mastery Distribution", "Topic Details"])
+    # Detailed topic statistics
+    st.subheader("Detailed Topic Statistics")
     
-    with tab1:
-        # Topic popularity chart
-        topics = []
-        percentages = []
-        for topic, data in stats["topic_statistics"].items():
-            topics.append(topic.replace("_", " ").title())
-            percentages.append(data["percentage_of_users"])
-        
-        df_popularity = pd.DataFrame({
-            "Topic": topics,
-            "Percentage of Users": percentages
+    # Create a DataFrame for the detailed view
+    detailed_data = []
+    for topic, data in stats["topic_statistics"].items():
+        detailed_data.append({
+            "Topic": topic.replace("_", " ").title(),
+            "Total Users": data["total_users"],
+            "Average Level": round(data["average_level"], 2),
+            "% of Users": round(data["percentage_of_users"], 2)
         })
-        
-        fig_popularity = px.bar(
-            df_popularity,
-            x="Topic",
-            y="Percentage of Users",
-            title="Topic Popularity Across Users",
-            labels={"Topic": "Topic", "Percentage of Users": "% of Users"},
-            color="Percentage of Users",
-            color_continuous_scale="Viridis"
-        )
-        fig_popularity.update_layout(xaxis_tickangle=-45)
-        st.plotly_chart(fig_popularity, use_container_width=True)
     
-    with tab2:
-        # Overall mastery distribution
-        levels = list(stats["overall_level_distribution"].keys())
-        percentages = list(stats["overall_level_distribution"].values())
-        
-        fig_distribution = px.pie(
-            values=percentages,
-            names=[f"Level {level}" for level in levels],
-            title="Overall Mastery Level Distribution",
-            color_discrete_sequence=px.colors.sequential.Viridis
-        )
-        st.plotly_chart(fig_distribution, use_container_width=True)
-    
-    with tab3:
-        # Detailed topic statistics
-        st.subheader("Detailed Topic Statistics")
-        
-        # Create a DataFrame for the detailed view
-        detailed_data = []
-        for topic, data in stats["topic_statistics"].items():
-            detailed_data.append({
-                "Topic": topic.replace("_", " ").title(),
-                "Total Users": data["total_users"],
-                "Average Level": round(data["average_level"], 2),
-                "% of Users": round(data["percentage_of_users"], 2)
-            })
-        
-        df_detailed = pd.DataFrame(detailed_data)
-        st.dataframe(
-            df_detailed.sort_values("Total Users", ascending=False),
-            use_container_width=True
-        )
-        
-        # Level distribution heatmap
-        topics = []
-        levels = []
-        percentages = []
-        
-        for topic, data in stats["topic_statistics"].items():
-            for level, percentage in data["level_distribution"].items():
-                topics.append(topic.replace("_", " ").title())
-                levels.append(f"Level {level}")
-                percentages.append(percentage)
-        
-        df_heatmap = pd.DataFrame({
-            "Topic": topics,
-            "Level": levels,
-            "Percentage": percentages
-        })
-        
-        fig_heatmap = px.density_heatmap(
-            df_heatmap,
-            x="Level",
-            y="Topic",
-            z="Percentage",
-            title="Topic Mastery Level Distribution",
-            color_continuous_scale="Viridis"
-        )
-        st.plotly_chart(fig_heatmap, use_container_width=True)
+    df_detailed = pd.DataFrame(detailed_data)
+    st.dataframe(
+        df_detailed.sort_values("Total Users", ascending=False),
+        use_container_width=True
+    )
+
+def format_date(date_str):
+    """Format date string to be more user-friendly."""
+    try:
+        date_obj = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+        return date_obj.strftime("%B %d, %Y at %I:%M %p")
+    except:
+        return date_str
 
 def main():
     """Main application entry point."""

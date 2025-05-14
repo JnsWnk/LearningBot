@@ -108,11 +108,13 @@ async def get_statistics():
         for level in level_distribution:
             level_distribution[level] = (level_distribution[level] / total_levels * 100) if total_levels > 0 else 0
         
-        return {
+        statistics = {
             "topic_statistics": topic_stats,
             "overall_level_distribution": level_distribution,
             "total_users": total_users
         }
+        print("Statistics: ", statistics)
+        return statistics
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
