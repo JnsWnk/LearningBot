@@ -36,7 +36,7 @@ class ChatMessage(BaseModel):
 class ChatResponse(BaseModel):
     bot_response: str
     is_quiz: bool = False
-    topic: str
+    topic: str = ""  # Default to empty string
 
 class QuizAnswer(BaseModel):
     answer: str

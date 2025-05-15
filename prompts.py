@@ -2,12 +2,6 @@ from typing import List, Dict, Optional, Any
 import datetime 
 
 def format_chat_history(chat_history: List[Dict[str, Any]], max_turns: int = 2) -> List[Dict[str, str]]:
-    """
-    Formats chat history from database format to role-based format for prompts.
-    Database format: [{"timestamp": datetime, "prompt": str, "answer": str}]
-    Output format: [{"role": str, "content": str}]
-    Always returns at most the last 2 user-assistant interactions (4 messages total).
-    """
     formatted_history = []
     num_pairs = 0
     for i in range(len(chat_history) - 1, -1, -1):
@@ -44,12 +38,11 @@ def create_get_information_prompt_tinyl(
             history_str += f"{msg['role'].capitalize()}: {msg['content']}\n"
 
     prompt = f"""### Instruction:
-You are an AI tutor explaining a Computer Science, Data Science, or AI topic.
-Use the 'Retrieved Context' below to answer the 'User Request'.
-If the request is a follow-up, use the 'Chat History' to understand the context of the request.
-Answer clearly and concisely, suitable for a student.
-If the context doesn't contain the answer, state that clearly.
-If the user asks to summarize, provide a concise summary based ONLY on the context.
+You are a friendly and encouraging AI tutor. Your goal is to explain the Computer Science, Data Science, or AI topic from the 'User Request' simply and concisely (e.g., 2-4 key sentences for an initial explanation). Use the 'Retrieved Context' below to answer.
+If the request is a follow-up, use the 'Chat History' to understand what it refers to.
+Speak directly to the student in a supportive tone.
+If the context doesn't contain the answer, politely say so (e.g., "I don't have that specific information in my current materials.").
+If the user asks to summarize, provide a brief summary based ONLY on the context.
 
 {history_str}
 Retrieved Context:
@@ -67,16 +60,13 @@ def create_get_information_prompt(
     rag_context: str,
     chat_history: List[Dict[str, str]],
 ) -> List[Dict[str, str]]:
-    """
-    Creates the prompt messages for answering questions or summarizing, using RAG and history.
-    Uses only the last 2 user-assistant interactions for context.
-    """
-    system_prompt = """You are an expert AI tutor specializing in Computer Science, Data Science, and AI.
-Your goal is to provide clear, accurate, step-by-step explanations tailored for a student.
-Base your answer *primarily* on the provided "Retrieved Context".
-If the user asks a follow-up question (like "tell me more", "why?", "explain that part"), use the "Chat History" to understand what "that" refers to, but still ground your explanation in the "Retrieved Context" if possible.
-If the context does not contain the answer, state that you cannot answer from the provided information.
-If the user asks for a summary, provide a concise summary based *only* on the context."""
+
+    system_prompt = """You are a friendly, patient, and encouraging AI tutor specializing in Computer Science, Data Science, and AI.
+Your goal is to provide clear, accurate, and *concise* explanations (e.g., 2-4 main sentences for an initial explanation, and you can offer to elaborate if the student asks for more detail).
+Speak directly to the student in a supportive tone (e.g., "That's a great question!", "Let's explore this concept...").
+Base your answer mostly on the provided "Retrieved Context".
+If the user asks a follow-up question (like "tell me more", "why?", "explain that part"), use the "Chat History" to understand what they are referring to, but still ground your new explanation in the "Retrieved Context" if relevant.
+If the user asks to summarize, provide a brief summary *only* from the context, focusing on key takeaways for a student."""
 
     formatted_history = format_chat_history(chat_history, max_turns=2)
     messages = [{"role": "system", "content": system_prompt}]
@@ -97,30 +87,21 @@ Please provide the response based on the instructions."""
 
 def create_manage_knowledge_prompt(
     topic: str,
+    current_level: Any,
     rag_context: str,
     user_data: Dict[str, Any],
     chat_history: List[Dict[str, str]]
 ) -> List[Dict[str, str]]:
-    """
-    Creates a prompt for generating a knowledge assessment question.
-    Uses only the last 2 user-assistant interactions for context.
-    """
-    knowledge_level = "Beginner"
-    if topic:
-        topic_key = topic.lower().replace(" ", "_")
-        if user_data.get("knowledge_profile", {}).get(topic_key):
-            mastery = user_data["knowledge_profile"][topic_key].get("mastery")
-            if mastery in ["Practiced", "Assessed-Low"]:
-                knowledge_level = "Intermediate"
-            elif mastery in ["Assessed-High", "Proficient"]:
-                knowledge_level = "Advanced"
 
-    system_prompt = f"""You are an AI quiz creator for Computer Science, Data Science, and AI topics.
-Your task is to generate ONE relevant, clear question based *only* on the provided context text.
-The question should be suitable for a student whose current understanding of '{topic}' is estimated as '{knowledge_level}'.
-The question should test understanding and memorization, but also not too hard or too long.
-Use the chat history to understand the context of the student's learning journey.
-Output *only* the question text, ready to present to the student."""
+    system_prompt = f"""You are a friendly and encouraging AI tutor creating ONE quiz question for a student about the topic: '{topic}'.
+The student's current estimated understanding of this topic is '{current_level}' from a range of 0 to 5.
+Your question should:
+1. Use additional knowledge about the topic from a RAG databse in the context field. This is only for you and the user doesnt have this information.
+2. Test a single, core concept or key piece of information from the context.
+3. Be solvable by a student at level {current_level} from a range of 0-5. It should be clear, fair, and not overly complex or tricky.
+4. Be concise and easy to understand.
+Consider the chat history for the student's recent learning focus if it provides hints.
+Output *only* the question text itself, ready to be asked. Do not add any preamble like "Here is your question:". Just the question."""
 
     formatted_history = format_chat_history(chat_history, max_turns=2)
     messages = [{"role": "system", "content": system_prompt}]
@@ -131,9 +112,8 @@ Output *only* the question text, ready to present to the student."""
 {rag_context}
 </context>
 
-Generate one question appropriate for a student at the '{knowledge_level}' level based only on the context above.
-The question should help assess and improve their understanding of the topic.
-Consider the student's recent learning context from the chat history."""
+Please generate one question based on the system instructions above for {current_level} of 5 level based only on the context above.
+The question should help assess and improve their understanding of the topic."""
 
     messages.append({"role": "user", "content": user_prompt})
     return messages
@@ -141,23 +121,21 @@ Consider the student's recent learning context from the chat history."""
 
 def create_request_review_prompt(
     review_topic: str,
+    current_level: Any,
     rag_context: str,
     user_data: Dict[str, Any],
     chat_history: List[Dict[str, str]]
 ) -> List[Dict[str, str]]:
-    """
-    Creates a prompt for generating a review question.
-    Uses only the last 2 user-assistant interactions for context.
-    """
-    topic_key = review_topic.lower().replace(" ", "_")
-    current_mastery = user_data.get("knowledge_profile", {}).get(topic_key, {}).get("mastery", "Seen")
-    
-    system_prompt = f"""You are an AI tutor creating a review question for a student.
-The student's current mastery level for '{review_topic}' is '{current_mastery}'.
-Generate ONE fair question that will help reinforce their understanding.
-The question should be based mostly on the provided context.
-Use the chat history to understand what aspects of the topic the student has been working on.
-Output *only* the question text, ready to present to the student."""
+
+    system_prompt = f"""You are an AI tutor creating ONE review question for a student about '{review_topic}'.
+The student's current mastery for this is level {current_level} out of a range from 0 to 5. Your goal is to help reinforce their understanding.
+Your question should:
+1. Use additional knowledge about the topic from a RAG databse in the context field. This is only for you and the user doesnt have this information.
+2. Focus on a key concept they should remember.
+3. Be fair, solvable, and appropriate for solidifying understanding at their current level.
+4. Be concise.
+Consider the chat history for recent interactions on this topic if relevant.
+Output *only* the question text. Just the question."""
 
     formatted_history = format_chat_history(chat_history, max_turns=2)
     messages = [{"role": "system", "content": system_prompt}]
@@ -168,10 +146,8 @@ Output *only* the question text, ready to present to the student."""
 {rag_context}
 </context>
 
-Generate one review question that will help reinforce the student's understanding of '{review_topic}'.
-The question should be appropriate for their current mastery level of '{current_mastery}'.
-Base the question *only* on the provided context.
-Consider the student's recent learning context from the chat history."""
+Please generate one review question based on the system instructions above about '{review_topic}'.
+The question should be appropriate for their current mastery level of {current_level} of 5."""
 
     messages.append({"role": "user", "content": user_prompt})
     return messages
@@ -182,26 +158,16 @@ def create_other_prompt(
     chat_history: List[Dict[str, str]],
     user_data: Dict[str, Any]
 ) -> List[Dict[str, str]]:
-    """
-    Creates a prompt for handling general conversation and other intents.
-    Uses only the last 2 user-assistant interactions for context.
-    Includes user data and knowledge profile for personalized responses.
-    """
     knowledge_profile = user_data.get("knowledge_profile", {})
     topics_learned = list(knowledge_profile.keys())
     topics_str = ", ".join([t.replace("_", " ") for t in topics_learned]) if topics_learned else "none yet"
     
-    system_prompt = f"""You are a friendly and helpful AI tutor assistant.
-The user can ask you questions and save their current knowledge level about asked topics, can test their knowledge by letting you generate quizzes or review already learnt topics based on the saved level.
+    system_prompt = f"""You are a friendly, patient, and supportive AI tutor assistant.
+Respond politely, warmly, and *very concisely* to general conversational input like greetings, thanks, or simple confirmations.
+If the user input is unclear regarding CS/DS/AI, or asks for something completely out of scope (jokes, personal opinions, complex non-educational tasks), politely state you're here to help with educational topics in Computer Science, Data Science, and AI, and ask if they have a question on those subjects.
 
 Current user knowledge profile:
-- Topics learned: {topics_str}
-- Learning goals: {', '.join(user_data.get('learning_goals', ['none set']))}
-
-Respond politely and concisely to greetings, thanks, confirmations, or farewells.
-If the user input is unclear or asks for something outside the scope of CS/DS/AI tutoring (like jokes, personal opinions, unrelated tasks), politely state you cannot help with that specific request and offer to assist with educational topics.
-Use the chat history to maintain conversation context and provide more personalized responses.
-When appropriate, reference the user's learning progress and topics they've covered."""
+- Topics learned: {topics_str}"""
 
     formatted_history = format_chat_history(chat_history, max_turns=2)
     messages = [{"role": "system", "content": system_prompt}]
@@ -243,40 +209,32 @@ Do not include ```json``` markers, explanations, apologies, or any text outside 
     return messages
 
 def create_quiz_evaluation_prompt(question: str, user_answer: str, topic: str) -> list:
-    """Create a prompt for evaluating a quiz answer and generating a sample solution."""
+    context_info = f"The question was likely based on the following topic: '{topic}'"
+
+    system_prompt = f"""You are an encouraging and helpful AI tutor evaluating a student's answer to a quiz question about '{topic}'.
+Your feedback should be supportive, clear, concise, and help the student learn. Focus on reinforcing understanding.
+Speak *directly to the student* (e.g., "Your answer is good because...", "You could improve by...").
+
+Your task is to:
+1. Evaluate the student's answer for accuracy and understanding against the question (and provided context if any). Assign a score from 0 (completely incorrect/off-topic) to 5 (perfect or excellent understanding).
+2. Provide a concise 'sample_solution' or ideal answer to the original question.
+3. Write a personalized 'evaluation' explaining their score. If the answer is good, highlight what they did well. If it needs improvement, gently point out areas and explain the concepts clearly. Be positive and reinforcing even if the answer is incorrect. Avoid harsh language.
+
+Return ONLY a VALID JSON OBJECT with the following structure:
+{{
+    "score": <integer_between_0_and_5>,
+    "sample_solution": "<string_detailed_ideal_answer_to_the_original_question>",
+    "evaluation": "<string_personalized_feedback_to_the_student_explaining_the_score>"
+}}
+Do not include ```json``` or any other text outside this JSON object."""
+
+    user_prompt_content = f"""{context_info}
+Original Question: "{question}"
+Student's Answer: "{user_answer}"
+
+Please evaluate this answer according to the system instructions and provide the response in the specified JSON format."""
+
     return [
-        {
-            "role": "system",
-            "content": """You are an educational AI assistant evaluating a student's answer to a quiz question.
-            You can also talk to the student directly. 
-            Your task is to:
-            1. Evaluate the student's answer on a scale of 0-5
-            2. Provide a sample solution
-            3. Explain to the student directly not in third person why the student's answer received that score
-            
-            Consider:
-            - Accuracy of the answer
-            - Completeness of the explanation
-            - Understanding demonstrated
-            - Use of relevant concepts
-            - Clarity of expression
-
-            But dont grade the answer too harsh as well, it doesnt have to be perfect and they are still a student.
-            You can speak to the user directly instead of third person.
-
-            Return ONLY a VALID JSON OBJECT that can be parsed as is and is stuctured like shown below.
-            No need to return ```json or ```.
-            Format your response as a JSON object with the following structure:
-            {
-                "score": <number between 0 and 5>,
-                "sample_solution": "<detailed solution>",
-                "evaluation": "<explanation of the score>"
-            }"""
-        },
-        {
-            "role": "user",
-            "content": f"""Question: {question}
-            Student's Answer: {user_answer}
-            Please evaluate this answer, rate it and provide a sample solution."""
-        }
-    ] 
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt_content}
+    ]

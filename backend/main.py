@@ -126,6 +126,7 @@ async def chat_endpoint(
 ):
     user_id = current_user.user_id
     user_input = message.user_input
+    use_gpt4 = message.use_gpt4
 
     ml_models = request.app.state.ml_models
 
@@ -139,13 +140,13 @@ async def chat_endpoint(
         user_id=user_id,
         models=ml_models,
         vector_index_name=config.VECTOR_INDEX_NAME,
-        use_gpt4=True
+        use_gpt4=use_gpt4
     )
 
     return schemas.ChatResponse(
         bot_response=response["bot_response"],
         is_quiz=response["is_quiz"],
-        topic=response["topic"]
+        topic=response["topic"] if response["topic"] else ""
     )
 
 @app.post("/quiz-answer", response_model=schemas.QuizResponse)

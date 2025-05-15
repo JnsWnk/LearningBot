@@ -27,6 +27,8 @@ def init_session_state():
         st.session_state.quiz_answers = {}
     if 'quiz_evaluations' not in st.session_state:
         st.session_state.quiz_evaluations = {}
+    if 'use_gpt4' not in st.session_state:
+        st.session_state.use_gpt4 = True
 
 def login(username: str, password: str) -> bool:
     """Attempt to login and store the access token."""
@@ -186,6 +188,14 @@ def chat_page():
     # Display knowledge profile in sidebar
     display_knowledge_profile()
     
+    # Model selection in sidebar
+    st.sidebar.markdown("### Model Selection")
+    st.session_state.use_gpt4 = st.sidebar.toggle(
+        "Use GPT-4",
+        value=st.session_state.use_gpt4,
+        help="Toggle between GPT-4 (slower but more accurate) and MiniLlama (faster but less accurate)"
+    )
+    
     # Display chat history
     for message in st.session_state.chat_history:
         with st.chat_message(message["role"]):
@@ -261,7 +271,7 @@ def chat_page():
         # Get bot response
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
-                response = send_chat_message(prompt)
+                response = send_chat_message(prompt, st.session_state.use_gpt4)
                 if response:
                     message_id = str(uuid.uuid4())
                     st.write(response["bot_response"])

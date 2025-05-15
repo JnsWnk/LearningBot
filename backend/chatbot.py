@@ -35,7 +35,9 @@ def interpret_intent(user_input: str, nlu_model, nlu_tokenizer, use_gpt4: bool =
         except json.JSONDecodeError:
             return {"intent": "OTHER", "topic": None}
     else:
-        return interpret_intent_flan(user_input, nlu_model, nlu_tokenizer)
+        intent = interpret_intent_flan(user_input, nlu_model, nlu_tokenizer)
+        print("Flan intent: ", intent)
+        return intent
 
 def interpret_intent_flan(user_input: str, nlu_model, nlu_tokenizer) -> dict:
     PREFIX = "Classify intent and extract topic: "
@@ -159,6 +161,15 @@ def generate_response(prompt, model, tokenizer, use_gpt4=True) -> str:
         traceback.print_exc()
         return "An unexpected error occurred during generation."
 
+def get_topic_level(user_data: dict, topic: str) -> int:
+    """Safely get the current level for a topic from user data."""
+    try:
+        standardized_topic = topic.lower().replace(" ", "_")
+        return user_data.get("knowledge_profile", {}).get(standardized_topic, {}).get("level", 1)
+    except Exception as e:
+        print(f"Error getting topic level: {e}")
+        return 1
+
 def process_chat_message(
     user_input: str,
     user_id: str,
@@ -177,10 +188,10 @@ def process_chat_message(
     else:
         print(f"Found user data for ID {user_id}: {user_data.get('knowledge_profile', {})}")
     
-    intent_data = interpret_intent(user_input, models["nlu"], models["tok_nlu"], use_gpt4=False)
+    intent_data = interpret_intent(user_input, models["nlu"], models["tok_nlu"], use_gpt4)
     intent = intent_data.get("intent", "OTHER")
-    topic = intent_data.get("topic")
-    standardized_topic = topic.lower().replace(" ", "_") if topic else None
+    topic = intent_data.get("topic", "")  
+    standardized_topic = topic.lower().replace(" ", "_") if topic else ""
     query = topic or user_input
     context = retrieve_context(query, models["emb"], vector_index_name)
 
@@ -206,19 +217,20 @@ def process_chat_message(
         if not topic:
             bot_answer = "I need to know which topic you'd like to explore. Please specify a topic."
         else:
-            prompt = prompts.create_manage_knowledge_prompt(topic, context, user_data, chat_history)
+            current_level = get_topic_level(user_data, topic)
+            prompt = prompts.create_manage_knowledge_prompt(topic, current_level, context, user_data, chat_history)
             bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], True)
             is_quiz = True
                 
     elif intent == "REQUEST_REVIEW":
         if not topic:
-            print("User data for review:", user_data.get('knowledge_profile', {}))
             topic = db.get_topic_to_review(user_id)
             if not topic:
                 bot_answer = "I don't have any topics to review yet. Try learning about a topic first!"
-                return {"bot_response": bot_answer, "is_quiz": False, "topic": None}
+                return {"bot_response": bot_answer, "is_quiz": False, "topic": ""}
         
-        prompt = prompts.create_request_review_prompt(topic, context, user_data, chat_history)
+        current_level = get_topic_level(user_data, topic)
+        prompt = prompts.create_request_review_prompt(topic, current_level, context, user_data, chat_history)
         bot_answer = generate_response(prompt, models["mini"], models["tok_mini"], True)
         is_quiz = True
             
@@ -232,7 +244,7 @@ def process_chat_message(
         print(f"Error saving chat history: {e}")
 
     print(f"Chat request processed in {time.time() - start_time:.2f} seconds.")
-    return {"bot_response": bot_answer, "is_quiz": is_quiz, "topic": topic}
+    return {"bot_response": bot_answer, "is_quiz": is_quiz, "topic": topic if topic else ""}
 
 def process_quiz(
     question: str,
@@ -288,7 +300,7 @@ def process_quiz(
             level_change = 2
         elif score == 4:
             level_change = 1
-        elif score in [1, 2]:
+        elif score == 1:
             level_change = -1
         elif score == 0:
             level_change = -2
