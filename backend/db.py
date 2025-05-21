@@ -30,7 +30,7 @@ def create_user(user: schemas.UserCreate):
         "hashed_password": hashed_password,
         "created_at": datetime.datetime.now(datetime.timezone.utc),
         "knowledge_profile": {},
-        "learning_goals": []
+        "chat_history": []
     }
     try:
         insert_result = users_collection.insert_one(user_doc)
@@ -46,7 +46,6 @@ def create_user(user: schemas.UserCreate):
         return None
     
 def update_user_knowledge(user_id: str, concept: str, new_level: int = None):
-    """Update or create a knowledge profile entry for a concept."""
     if not user_id or not concept:
         print("Error: user_id and concept are required for update_user_knowledge.")
         return None
@@ -98,7 +97,6 @@ def update_user_knowledge(user_id: str, concept: str, new_level: int = None):
         return None
 
 def get_topic_to_review(user_id: str) -> str:
-    """Get the topic that needs review based on oldest update date."""
     try:
         obj_user_id = ObjectId(user_id)
     except Exception as e:
@@ -122,7 +120,6 @@ def get_topic_to_review(user_id: str) -> str:
         return None
 
 def save_chat_history(user_id: str, prompt: str, answer: str):
-    """Saves a chat interaction to the user's history."""
     if not user_id or not prompt or not answer:
         print("Error: user_id, prompt, and answer are required for save_chat_history.")
         return None
@@ -160,7 +157,6 @@ def save_chat_history(user_id: str, prompt: str, answer: str):
         return None
 
 def get_chat_history(user_id: str, limit: int = 1) -> list:
-    """Retrieves the most recent chat history entries for a user."""
     if not user_id:
         print("Error: user_id is required for get_chat_history.")
         return []
@@ -186,7 +182,6 @@ def get_chat_history(user_id: str, limit: int = 1) -> list:
         return []
 
 def get_user_by_id(user_id: str):
-    """Retrieves a user by their ID."""
     if not user_id:
         print("Error: user_id is required for get_user_by_id.")
         return None

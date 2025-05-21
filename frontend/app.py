@@ -16,7 +16,6 @@ if(not API_URL or API_URL == None or API_URL == ""):
     API_URL = "http://localhost:8000"  
 
 def init_session_state():
-    """Initialize session state variables."""
     if 'access_token' not in st.session_state:
         st.session_state.access_token = None
     if 'username' not in st.session_state:
@@ -31,7 +30,6 @@ def init_session_state():
         st.session_state.use_gpt4 = True
 
 def login(username: str, password: str) -> bool:
-    """Attempt to login and store the access token."""
     try:
         response = requests.post(
             f"{API_URL}/token",
@@ -48,7 +46,6 @@ def login(username: str, password: str) -> bool:
         return False
 
 def register(username: str, password: str) -> bool:
-    """Attempt to register a new user."""
     try:
         response = requests.post(
             f"{API_URL}/register",
@@ -60,7 +57,6 @@ def register(username: str, password: str) -> bool:
         return False
 
 def send_chat_message(message: str, use_gpt4: bool = True) -> dict:
-    """Send a message to the chatbot API."""
     try:
         headers = {"Authorization": f"Bearer {st.session_state.access_token}"}
         response = requests.post(
@@ -78,7 +74,6 @@ def send_chat_message(message: str, use_gpt4: bool = True) -> dict:
         return None
 
 def send_quiz_answer(answer: str, message_id: str, question: str, topic: str) -> dict:
-    """Send a quiz answer to the API."""
     try:
         headers = {"Authorization": f"Bearer {st.session_state.access_token}"}
         response = requests.post(
@@ -96,7 +91,6 @@ def send_quiz_answer(answer: str, message_id: str, question: str, topic: str) ->
         return None
 
 def get_user_knowledge() -> dict:
-    """Get the user's knowledge profile."""
     try:
         headers = {"Authorization": f"Bearer {st.session_state.access_token}"}
         response = requests.get(
@@ -113,7 +107,6 @@ def get_user_knowledge() -> dict:
         return {"knowledge_profile": {}}
 
 def display_knowledge_profile():
-    """Display the user's knowledge profile in the sidebar."""
     st.sidebar.markdown("### Your Knowledge Profile")
     
     # Get the latest knowledge profile
@@ -143,7 +136,6 @@ def display_knowledge_profile():
         st.sidebar.markdown("---")
 
 def login_page():
-    """Display the login page."""
     st.title("Login")
     
     with st.form("login_form"):
@@ -159,7 +151,6 @@ def login_page():
                 st.error("Invalid username or password")
 
 def register_page():
-    """Display the registration page."""
     st.title("Register")
     
     with st.form("register_form"):
@@ -286,7 +277,6 @@ def chat_page():
                     st.rerun()
 
 def get_statistics() -> dict:
-    """Get statistics about all users' knowledge profiles."""
     try:
         response = requests.get(f"{API_URL}/statistics")
         if response.status_code == 200:
@@ -299,7 +289,6 @@ def get_statistics() -> dict:
         return None
 
 def statistics_page():
-    """Display the statistics page."""
     st.title("Learning Statistics")
     
     # Get statistics
@@ -331,7 +320,6 @@ def statistics_page():
     )
 
 def format_date(date_str):
-    """Format date string to be more user-friendly."""
     try:
         date_obj = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
         return date_obj.strftime("%B %d, %Y at %I:%M %p")
@@ -339,7 +327,6 @@ def format_date(date_str):
         return date_str
 
 def main():
-    """Main application entry point."""
     init_session_state()
     
     # Sidebar for navigation

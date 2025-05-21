@@ -36,7 +36,6 @@ def interpret_intent(user_input: str, nlu_model, nlu_tokenizer, use_gpt4: bool =
             return {"intent": "OTHER", "topic": None}
     else:
         intent = interpret_intent_flan(user_input, nlu_model, nlu_tokenizer)
-        print("Flan intent: ", intent)
         return intent
 
 def interpret_intent_flan(user_input: str, nlu_model, nlu_tokenizer) -> dict:
@@ -59,7 +58,6 @@ def interpret_intent_flan(user_input: str, nlu_model, nlu_tokenizer) -> dict:
 
         if ':' in result_text and '"' in result_text:
             json_string_to_parse = "{" + result_text + "}"
-            print(f"  CHATBOT NLU Attempting to parse: '{json_string_to_parse}'")
             try:
                 parsed = json.loads(json_string_to_parse)
                 intent = parsed.get("intent", "OTHER")
@@ -85,7 +83,7 @@ def interpret_intent_flan(user_input: str, nlu_model, nlu_tokenizer) -> dict:
         print(f"  CHATBOT NLU Error during generation or processing: {e}")
         return {"intent": "ERROR", "topic": None}
 
-def retrieve_context(query_text: str, embedding_model, index_name: str, k: int = 3) -> str:
+def retrieve_context(query_text: str, embedding_model, index_name: str, k: int = 5) -> str:
     if not query_text:
         return "No query provided for context retrieval."
     try:
@@ -103,6 +101,7 @@ def retrieve_context(query_text: str, embedding_model, index_name: str, k: int =
         results = list(db.docs_collection.aggregate(pipeline))
         context = "\n---\n".join([f"Context: {res['text_chunk']} (Score: {res['score']:.4f})" for res in results])
         print("Context found in RAG DB: ", len(results))
+        print(results)
         return context if context else "No relevant context found in the database."
     except Exception as e:
         print(f"Error during RAG retrieval: {e}")
@@ -138,7 +137,7 @@ def generate_response(prompt, model, tokenizer, use_gpt4=True) -> str:
                 with torch.no_grad():
                     outputs = model.generate(
                         **inputs,
-                        max_new_tokens=500,      
+                        max_new_tokens=5000,      
                         temperature=0.7,
                         top_p=0.9,
                         do_sample=True,

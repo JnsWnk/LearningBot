@@ -62,7 +62,6 @@ async def get_user_knowledge(current_user: schemas.UserPublic = Depends(security
 
 @app.get("/statistics", response_model=schemas.StatisticsResponse)
 async def get_statistics():
-    """Get statistics about all users' knowledge profiles."""
     try:
         # Get all users
         all_users = list(db.users_collection.find({}))

@@ -11,13 +11,11 @@ NLU_MODEL_ID = "JnsDev/flan-t5-chatbot-intent"
 
 
 def load_all_models(emb=True, tiny=True, flan=True):
-    """Loads embedding model, fine-tuned TinyLlama, and Mistral 7B Instruct."""
     models = {}
     print("CORE: Loading ML models...")
     start_time = time.time()
     load_successful = True
 
-    # --- 1. Embedding Model ---
     if(emb):
         try:
             print(f"CORE: Loading embedding model: {config.EMBEDDING_MODEL_NAME}...")
@@ -29,7 +27,6 @@ def load_all_models(emb=True, tiny=True, flan=True):
             models["embedding_model_error"] = str(e)
             load_successful = False
 
-    # --- 2. Fine-tuned TinyLlama (llm_mini) ---
     if(tiny):
         try:
             print(f"CORE: Loading TinyLlama: {config.BASE_LLM_NAME} + adapter {config.ADAPTER_NAME}...")
