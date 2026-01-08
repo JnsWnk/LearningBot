@@ -1,5 +1,6 @@
 from typing import List, Dict, Optional, Any
-import datetime 
+import datetime
+
 
 def format_chat_history(chat_history: List[Dict[str, Any]], max_turns: int = 2) -> List[Dict[str, str]]:
     formatted_history = []
@@ -7,7 +8,7 @@ def format_chat_history(chat_history: List[Dict[str, Any]], max_turns: int = 2) 
     for i in range(len(chat_history) - 1, -1, -1):
         if num_pairs >= max_turns:
             break
-            
+
         entry = chat_history[i]
         formatted_history.insert(0, {
             "role": "assistant",
@@ -30,7 +31,7 @@ def create_get_information_prompt_tinyl(
     chat_history: List[Dict[str, str]],
 ) -> str:
     formatted_history = format_chat_history(chat_history, max_turns=1)
-    
+
     history_str = ""
     if formatted_history:
         history_str = "Chat History (Recent):\n"
@@ -55,6 +56,7 @@ User Request: {user_message}
 """
     return prompt
 
+
 def create_get_information_prompt(
     user_message: str,
     rag_context: str,
@@ -71,7 +73,7 @@ If the user asks to summarize, provide a brief summary *only* from the context, 
     formatted_history = format_chat_history(chat_history, max_turns=2)
     messages = [{"role": "system", "content": system_prompt}]
     messages.extend(formatted_history)
-    
+
     user_prompt = f"""Retrieved Context:
 ---
 {rag_context}
@@ -80,7 +82,7 @@ If the user asks to summarize, provide a brief summary *only* from the context, 
 User Request: "{user_message}"
 
 Please provide the response based on the instructions."""
-    
+
     messages.append({"role": "user", "content": user_prompt})
     return messages
 
@@ -106,7 +108,7 @@ Output *only* the question text itself, ready to be asked. Do not add any preamb
     formatted_history = format_chat_history(chat_history, max_turns=2)
     messages = [{"role": "system", "content": system_prompt}]
     messages.extend(formatted_history)
-    
+
     user_prompt = f"""Context about '{topic}':
 <context>
 {rag_context}
@@ -140,7 +142,7 @@ Output *only* the question text. Just the question."""
     formatted_history = format_chat_history(chat_history, max_turns=2)
     messages = [{"role": "system", "content": system_prompt}]
     messages.extend(formatted_history)
-    
+
     user_prompt = f"""Context for review of '{review_topic}':
 <context>
 {rag_context}
@@ -160,8 +162,9 @@ def create_other_prompt(
 ) -> List[Dict[str, str]]:
     knowledge_profile = user_data.get("knowledge_profile", {})
     topics_learned = list(knowledge_profile.keys())
-    topics_str = ", ".join([t.replace("_", " ") for t in topics_learned]) if topics_learned else "none yet"
-    
+    topics_str = ", ".join([t.replace("_", " ")
+                           for t in topics_learned]) if topics_learned else "none yet"
+
     system_prompt = f"""You are a friendly, patient, and supportive AI tutor assistant.
 Respond politely, warmly, and *very concisely* to general conversational input like greetings, thanks, or simple confirmations.
 If the user input is unclear regarding CS/DS/AI, or asks for something completely out of scope (jokes, personal opinions, complex non-educational tasks), politely state you're here to help with educational topics in Computer Science, Data Science, and AI, and ask if they have a question on those subjects.
@@ -173,7 +176,7 @@ Current user knowledge profile:
     messages = [{"role": "system", "content": system_prompt}]
     messages.extend(formatted_history)
     messages.append({"role": "user", "content": user_message})
-    
+
     return messages
 
 
@@ -188,17 +191,17 @@ The JSON object structure must be exactly: {{"intent": "...", "topic": "..."}}.
 Do not include ```json``` markers, explanations, apologies, or any text outside the JSON object."""
 
     examples = [
-        ({"role": "user", "content": "what is python?"}, 
+        ({"role": "user", "content": "what is python?"},
          {"role": "assistant", "content": "{\"intent\": \"GET_INFORMATION\", \"topic\": \"python\"}"}),
-        ({"role": "user", "content": "Quiz me on data structures"}, 
+        ({"role": "user", "content": "Quiz me on data structures"},
          {"role": "assistant", "content": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"data structures\"}"}),
-        ({"role": "user", "content": "What's my level for sorting algorithms?"}, 
+        ({"role": "user", "content": "What's my level for sorting algorithms?"},
          {"role": "assistant", "content": "{\"intent\": \"MANAGE_KNOWLEDGE\", \"topic\": \"sorting algorithms\"}"}),
-        ({"role": "user", "content": "Review my weakest topic"}, 
+        ({"role": "user", "content": "Review my weakest topic"},
          {"role": "assistant", "content": "{\"intent\": \"REQUEST_REVIEW\", \"topic\": null}"}),
-        ({"role": "user", "content": "thanks"}, 
+        ({"role": "user", "content": "thanks"},
          {"role": "assistant", "content": "{\"intent\": \"OTHER\", \"topic\": null}"}),
-        ({"role": "user", "content": "Can you explain that again?"}, 
+        ({"role": "user", "content": "Can you explain that again?"},
          {"role": "assistant", "content": "{\"intent\": \"GET_INFORMATION\", \"topic\": null}"})
     ]
 
@@ -207,6 +210,7 @@ Do not include ```json``` markers, explanations, apologies, or any text outside 
         messages.extend([user_msg, assistant_msg])
     messages.append({"role": "user", "content": user_input})
     return messages
+
 
 def create_quiz_evaluation_prompt(question: str, user_answer: str, topic: str) -> list:
     context_info = f"The question was likely based on the following topic: '{topic}'"

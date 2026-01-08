@@ -3,8 +3,8 @@ from pymongo.errors import DuplicateKeyError
 import datetime
 from bson.objectid import ObjectId
 
-import schemas 
-import security 
+import schemas
+import security
 import config
 
 try:
@@ -17,11 +17,13 @@ try:
 except Exception as e:
     print(f"CRUD: Error connecting to MongoDB: {e}")
 
+
 def get_user_by_username(username: str):
     user_doc = users_collection.find_one({"username": username})
     if user_doc:
         user_doc['_id'] = str(user_doc['_id'])
-    return user_doc 
+    return user_doc
+
 
 def create_user(user: schemas.UserCreate):
     hashed_password = security.get_password_hash(user.password)
@@ -34,7 +36,8 @@ def create_user(user: schemas.UserCreate):
     }
     try:
         insert_result = users_collection.insert_one(user_doc)
-        created_doc = users_collection.find_one({"_id": insert_result.inserted_id})
+        created_doc = users_collection.find_one(
+            {"_id": insert_result.inserted_id})
         if created_doc:
             created_doc['_id'] = str(created_doc['_id'])
         return created_doc
@@ -44,7 +47,8 @@ def create_user(user: schemas.UserCreate):
     except Exception as e:
         print(f"Error creating user: {e}")
         return None
-    
+
+
 def update_user_knowledge(user_id: str, concept: str, new_level: int = None):
     if not user_id or not concept:
         print("Error: user_id and concept are required for update_user_knowledge.")
@@ -57,7 +61,7 @@ def update_user_knowledge(user_id: str, concept: str, new_level: int = None):
         return None
 
     current_time = datetime.datetime.now(datetime.timezone.utc)
-    
+
     # Get current knowledge profile
     user = users_collection.find_one({"_id": obj_user_id})
     if not user:
@@ -65,8 +69,9 @@ def update_user_knowledge(user_id: str, concept: str, new_level: int = None):
         return None
 
     # Get current level or default to 1 if not exists
-    current_level = user.get("knowledge_profile", {}).get(concept, {}).get("level", 1)
-    
+    current_level = user.get("knowledge_profile", {}).get(
+        concept, {}).get("level", 1)
+
     # Update level if provided
     if new_level is not None:
         # Ensure level stays within 0-5 range
@@ -88,13 +93,17 @@ def update_user_knowledge(user_id: str, concept: str, new_level: int = None):
             update_operation
         )
         if result.matched_count == 0:
-            print(f"Warning: No user found with _id '{user_id}' to update knowledge.")
+            print(
+                f"Warning: No user found with _id '{user_id}' to update knowledge.")
             return None
-        print(f"Updated knowledge for user '{user_id}', concept '{concept}'. Level: {current_level}")
+        print(
+            f"Updated knowledge for user '{user_id}', concept '{concept}'. Level: {current_level}")
         return result
     except Exception as e:
-        print(f"Error updating user knowledge in DB for user '{user_id}', concept '{concept}': {e}")
+        print(
+            f"Error updating user knowledge in DB for user '{user_id}', concept '{concept}': {e}")
         return None
+
 
 def get_topic_to_review(user_id: str) -> str:
     try:
@@ -111,13 +120,15 @@ def get_topic_to_review(user_id: str) -> str:
         # Find topic with oldest last_updated date
         oldest_topic = min(
             user["knowledge_profile"].items(),
-            key=lambda x: x[1].get("last_updated", datetime.datetime.min.replace(tzinfo=datetime.timezone.utc))
+            key=lambda x: x[1].get("last_updated", datetime.datetime.min.replace(
+                tzinfo=datetime.timezone.utc))
         )[0]
 
         return oldest_topic
     except Exception as e:
         print(f"Error getting topic to review for user '{user_id}': {e}")
         return None
+
 
 def save_chat_history(user_id: str, prompt: str, answer: str):
     if not user_id or not prompt or not answer:
@@ -149,12 +160,14 @@ def save_chat_history(user_id: str, prompt: str, answer: str):
             }
         )
         if result.matched_count == 0:
-            print(f"Warning: No user found with _id '{user_id}' to save chat history.")
+            print(
+                f"Warning: No user found with _id '{user_id}' to save chat history.")
             return None
         return result
     except Exception as e:
         print(f"Error saving chat history for user '{user_id}': {e}")
         return None
+
 
 def get_chat_history(user_id: str, limit: int = 1) -> list:
     if not user_id:
@@ -172,14 +185,15 @@ def get_chat_history(user_id: str, limit: int = 1) -> list:
             {"_id": obj_user_id},
             {"chat_history": {"$slice": -limit}}
         )
-        
+
         if not user or "chat_history" not in user:
             return []
-            
+
         return user["chat_history"]
     except Exception as e:
         print(f"Error retrieving chat history for user '{user_id}': {e}")
         return []
+
 
 def get_user_by_id(user_id: str):
     if not user_id:
